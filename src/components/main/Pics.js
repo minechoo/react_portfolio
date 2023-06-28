@@ -1,5 +1,5 @@
 function Pics() {
-	return <div></div>;
+	return <div>pics</div>;
 }
 
 export default Pics;

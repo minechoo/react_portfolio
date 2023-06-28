@@ -1,5 +1,5 @@
 function Visual() {
-	return <div></div>;
+	return <div>visual</div>;
 }
 
 export default Visual;
