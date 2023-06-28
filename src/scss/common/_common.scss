@@ -1,0 +1,167 @@
+/** =================== MONTSERRAT =================== **/
+
+/** Montserrat Thin **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 100;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-Thin.woff2') format('woff2');
+}
+
+/** Montserrat ExtraLight **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 200;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-ExtraLight.woff2') format('woff2');
+}
+
+/** Montserrat Light **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 300;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-Light.woff2') format('woff2');
+}
+
+/** Montserrat Regular **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-Regular.woff2') format('woff2');
+}
+
+/** Montserrat Medium **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 500;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-Medium.woff2') format('woff2');
+}
+
+/** Montserrat SemiBold **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 600;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-SemiBold.woff2') format('woff2');
+}
+
+/** Montserrat Bold **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-Bold.woff2') format('woff2');
+}
+
+/** Montserrat ExtraBold **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 800;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-ExtraBold.woff2') format('woff2');
+}
+
+/** Montserrat Black **/
+@font-face {
+	font-family: 'Montserrat';
+	font-weight: 900;
+	font-style: normal;
+	src: url('../../../public/font/Montserrat-Black.woff2') format('woff2');
+}
+
+.offscreen {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px); /* for Internet Explorer */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.line_deco {
+	display: inline-block;
+	width: 70px;
+	height: 5px;
+	margin: 34px 0;
+	background-image: linear-gradient(to right, #cd5772, #db755a);
+}
+
+.line_deco_02 {
+	display: inline-block;
+	width: 180px;
+	height: 5px;
+	margin: 24px 0;
+	background-image: linear-gradient(to right, #cd5772, #db755a);
+}
+
+.bottom {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+}
+
+.big_txt_sub {
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+	font-size: 50vw;
+	color: #ddd;
+	font-weight: 800;
+	opacity: 0.7;
+}
+
+.w_sub {
+	width: $widthSub !important;
+}
+.sub_txt {
+	position: absolute;
+	right: 0;
+	top: 100px;
+	font-size: 21vw;
+	color: #1a1a1f;
+	font-weight: 700;
+}
+
+.mb_35 {
+	margin-bottom: 35px;
+}
+.t_center {
+	text-align: center !important;
+}
+
+@media screen and (max-width: 1920px) {
+	.sub_txt {
+		font-size: 27vw;
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	.big_txt_sub {
+		font-size: 70vw;
+	}
+	.sub_txt {
+		font-size: 50vw;
+		top: -100px;
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	.big_txt_sub {
+		font-size: 100vw;
+		margin-left: -50px;
+	}
+	.sub_txt {
+		font-size: 60vw;
+		top: -120px;
+		right: -50px;
+	}
+	.line_deco_02 {
+		width: 90px;
+	}
+}
