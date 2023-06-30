@@ -1,0 +1,197 @@
+.Contact {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	background: #232427;
+	padding-bottom: 150px;
+
+	.content_wrap {
+		position: relative;
+		width: 1460px;
+		margin: 0 auto;
+
+		.map_wrap {
+			border: 1px solid transparent;
+			border-image: linear-gradient(to right, $red 0%, $orange 100%);
+			border-image-slice: 1;
+			padding: 20px;
+
+			#map {
+				width: 100%;
+				height: 430px;
+			}
+		}
+		.btn_map_wrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 15px;
+
+			.branch {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: 15px;
+				margin: 15px 0;
+
+				li {
+					width: 200px;
+					height: 40px;
+					border: 1px solid transparent;
+					border-image: linear-gradient(to right, $red 0%, $orange 100%);
+					border-image-slice: 1;
+					color: #fff;
+					font-size: 17px;
+					line-height: 40px;
+					font-weight: 300;
+					text-align: center;
+					cursor: pointer;
+					box-sizing: border-box;
+				}
+			}
+			.btnToggle {
+				width: 200px;
+				height: 40px;
+				background: none;
+				border: 1px solid transparent;
+				border-image: linear-gradient(to right, $red 0%, $orange 100%);
+				border-image-slice: 1;
+				color: #fff;
+				font-size: 17px;
+				line-height: 40px;
+				font-weight: 300;
+				text-align: center;
+				cursor: pointer;
+			}
+		}
+		.contact {
+			width: 100%;
+
+			h2 {
+				color: #fff;
+				width: 100%;
+				text-align: center;
+				font-size: 30px;
+				margin: 100px 0 30px;
+			}
+
+			form {
+				width: 100%;
+				padding: 40px;
+				border: 1px solid transparent;
+				border-image: linear-gradient(to right, $red 0%, $orange 100%);
+				border-image-slice: 1;
+				box-sizing: border-box;
+
+				.input_area {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 15px;
+					gap: 20px;
+
+					.input_inner {
+						width: 50%;
+					}
+				}
+
+				label {
+					display: inline-block;
+					width: 100%;
+					color: #fff;
+					line-height: 36px;
+					vertical-align: top;
+				}
+				input,
+				textarea {
+					background: transparent;
+					padding: 10px;
+					color: #787878;
+					border: 1px solid #787878;
+					box-sizing: border-box;
+				}
+				input {
+					width: 100%;
+				}
+				textarea {
+					width: 100%;
+				}
+				.btn_submit {
+					width: 200px;
+					margin-top: 15px;
+					border: 1px solid transparent;
+					border-image: linear-gradient(to right, $red 0%, $orange 100%);
+					border-image-slice: 1;
+					color: #fff;
+					font-size: 17px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1538px) {
+	.location {
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		background: #232427;
+		padding-bottom: 150px;
+
+		.content_wrap {
+			position: relative;
+			width: $width90;
+		}
+	}
+}
+@media screen and (max-width: $tablet) {
+	.location {
+		.content_wrap {
+			.btn_map_wrap {
+				.btnToggle,
+				.branch {
+					flex: 1;
+					li {
+						flex: 1;
+						width: fit-content;
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: $mobile) {
+	.location {
+		padding-bottom: 100px;
+
+		.content_wrap {
+			.btn_map_wrap {
+				display: block;
+				margin-top: 15px;
+				.btnToggle {
+					width: 100%;
+				}
+			}
+			.contact {
+				h2 {
+					margin: 50px 0 30px;
+				}
+				#contact-form {
+					padding: 30px;
+
+					.input_area {
+						display: block;
+						.input_inner {
+							width: 100%;
+						}
+					}
+					input {
+						margin-bottom: 15px;
+					}
+					.btn_submit {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
