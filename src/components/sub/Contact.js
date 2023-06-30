@@ -7,13 +7,12 @@ function Contact() {
 	const [Location, setLocation] = useState(null);
 	const [Index, setIndex] = useState(0);
 	const [Success, setSuccess] = useState(false);
+
+	const container = useRef(null);
 	const inputName = useRef(null);
 	const inputEmail = useRef(null);
 	const inputMessage = useRef(null);
-	//지도가 들어갈 프레임도 가상요소 참조를 위해 useRef로 참조객체생성
-	const container = useRef(null);
-	const arr = useRef(null);
-	//일반 HTML버전과는 달리 윈도우객체에서 직접 kakao 상의 객체값을 뽑아옴
+
 	const { kakao } = window;
 	const info = [
 		{
@@ -75,7 +74,7 @@ function Contact() {
 	//email
 	useEffect(() => {
 		container.current.innerHTML = '';
-		//인스턴스 호출구문은 컴포넌트 처음 마운트시 호출
+
 		const mapInstance = new kakao.maps.Map(container.current, option);
 
 		marker.setMap(mapInstance);
@@ -83,12 +82,10 @@ function Contact() {
 		mapInstance.addControl(new kakao.maps.MapTypeControl(), kakao.maps.ControlPosition.TOPRIGHT);
 		mapInstance.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
 
-		//setCenter가 호출시 내부적으로 Index State 값에 의존하기때문에
-		//useEffect안쪽에서 setCenter함수를 정의하고 호출
 		const setCenter = () => {
 			mapInstance?.setCenter(info[Index].latlng);
 		};
-		//지역변수의 mapInstance값을 다른 함수에서도 활용해야 되므로 Location state에 해당 인스턴스 값 지정
+
 		window.addEventListener('resize', setCenter);
 		setLocation(mapInstance);
 
@@ -96,8 +93,6 @@ function Contact() {
 	}, [Index]);
 
 	useEffect(() => {
-		//Location state에 담겨있는 앱 인스턴스로부터 traffic레이어 호출구문처리
-		//첫 랜더링 사이클에서는 Location 값이 null이므로 Optionl Changing 을 활용해서 해당값이 담기는 두번째 랜더링 사이클부터 동작하도록 처리
 		Traffic
 			? Location?.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC)
 			: Location?.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
