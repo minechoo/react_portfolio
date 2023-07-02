@@ -1,5 +1,12 @@
 function News() {
-	return <div>News</div>;
+	return (
+		<section id='news' className='myScroll'>
+			<article></article>
+			<article></article>
+			<article></article>
+			<article></article>
+		</section>
+	);
 }
 
 export default News;

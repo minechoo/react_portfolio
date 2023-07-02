@@ -12,6 +12,10 @@ footer {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
+		opacity: 1;
+		transform: none;
+		transition: none;
+
 		.left_box {
 			width: 24%;
 			h1 {

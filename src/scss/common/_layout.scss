@@ -1,6 +1,9 @@
 .content {
 	position: relative;
 	width: 100%;
+	opacity: 0;
+	transform: translateY(70px);
+	transition: 1s 0.5s;
 
 	.inner_top {
 		position: relative;
@@ -8,9 +11,6 @@
 		text-align: center;
 		padding-top: 150px;
 		box-sizing: border-box;
-		opacity: 0;
-		transform: translateY(70px);
-		transition: 1s 0.5s;
 
 		.bg_deep {
 			position: absolute;
@@ -48,10 +48,8 @@
 }
 
 .content.on {
-	> .inner_top {
-		opacity: 1;
-		transform: translateY(0px);
-	}
+	opacity: 1;
+	transform: translateY(0px);
 }
 
 @media screen and (max-width: $tablet) {

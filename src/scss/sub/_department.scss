@@ -140,14 +140,14 @@
 	}
 }
 @media screen and (max-width: 1920px) {
-	.department .inner_top .txt {
+	.Department .inner_top .txt {
 		font-size: 14vw;
 	}
 }
 
 @media screen and (max-width: $tablet) {
 	$widthContent: 90%;
-	.department {
+	.Department {
 		.inner_top {
 			width: 100%;
 			padding: 70px 3% 0;
@@ -182,7 +182,7 @@
 }
 
 @media screen and (max-width: $mobile) {
-	.department {
+	.Department {
 		overflow: hidden;
 		.wrap {
 			article {

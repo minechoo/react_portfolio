@@ -123,19 +123,19 @@ function Contact() {
 
 				<form ref={form} onSubmit={sendEmail}>
 					<div className='input_area'>
-						<div class='input_inner'>
+						<div className='input_inner'>
 							<label>Name</label>
 							<input type='text' name='user_name' ref={inputName} />
 						</div>
-						<div class='input_inner'>
+						<div className='input_inner'>
 							<label>Email</label>
 							<input type='email' name='user_email' ref={inputEmail} />
 						</div>
 					</div>
-					<div class='text_area'>
+					<div className='text_area'>
 						<label>Message</label>
 						<textarea name='message' ref={inputMessage} />
-						<div class='t_center'>
+						<div className='t_center'>
 							<input type='submit' className='btn_submit' value='Send' />
 						</div>
 					</div>

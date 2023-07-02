@@ -108,6 +108,9 @@ body {
 		align-items: center;
 		width: $widthContent;
 		margin: 0 auto;
+		opacity: 1;
+		transform: none;
+		transition: none;
 
 		.content_txt {
 			position: relative;
