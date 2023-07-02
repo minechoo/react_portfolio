@@ -16,7 +16,7 @@ function Contact() {
 	const { kakao } = window;
 	const info = [
 		{
-			title: '삼성역 코엑스',
+			title: '코엑스',
 			latlng: new kakao.maps.LatLng(37.51100661425726, 127.06162026853143),
 			imgSrc: `${process.env.PUBLIC_URL}/img/marker.png`,
 			imgSize: new kakao.maps.Size(70, 60),
@@ -134,7 +134,7 @@ function Contact() {
 					</div>
 					<div className='text_area'>
 						<label>Message</label>
-						<textarea name='message' ref={inputMessage} />
+						<textarea name='message' rows='10' ref={inputMessage} />
 						<div className='t_center'>
 							<input type='submit' className='btn_submit' value='Send' />
 						</div>
