@@ -12,15 +12,13 @@ function Header({ type }) {
 
 	useEffect(() => {
 		menu.current.addEventListener('click', () => {
-			gnb.current.classList.remove('off');
 			gnb.current.classList.add('on');
-			body.style.overflow = 'hidden';
+			body.style.overflowY = 'hidden';
 		});
 
 		btnG.current.addEventListener('click', () => {
 			gnb.current.classList.remove('on');
-			gnb.current.classList.add('off');
-			body.style.overflow = 'auto';
+			body.style.overflowY = 'auto';
 		});
 	}, []);
 
