@@ -89,6 +89,8 @@ function Contact() {
 		window.addEventListener('resize', setCenter);
 		setLocation(mapInstance);
 
+		mapInstance.setZoomable(false);
+
 		return () => window.removeEventListener('resize', setCenter);
 	}, [Index]);
 

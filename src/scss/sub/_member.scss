@@ -1,0 +1,224 @@
+.Member {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	background: #232427;
+
+	.content_wrap {
+		position: relative;
+		width: $widthSub;
+		margin: 0 auto;
+		padding-bottom: 150px;
+
+		.btn_line {
+			height: 30px;
+			padding: 0 20px;
+			margin-bottom: 10px;
+			background: transparent;
+			color: #eee;
+			line-height: 30px;
+			border: 1px solid transparent;
+			border-image: linear-gradient(to right, #cd5772 0%, #ce6a52 100%);
+			border-image-slice: 1;
+			cursor: pointer;
+		}
+
+		form {
+			table {
+				width: 100%;
+				border: none;
+				border-top: 2px solid $red;
+				border-bottom: 2px solid $orange;
+
+				th,
+				td {
+					border: none;
+					border-bottom: 1px solid #787878;
+					padding: 16px 25px;
+				}
+				th {
+					width: 20%;
+					color: $red;
+					text-align: right;
+
+					label {
+						color: $red;
+					}
+
+					input[type='submit'],
+					input[type='reset'] {
+						width: 30%;
+						height: 40px;
+						border: 1px solid transparent;
+						border-image: linear-gradient(to right, $red 0%, $orange 100%);
+						border-image-slice: 1;
+						margin: 10px;
+						font-weight: 600;
+						font-size: 14px;
+						line-height: 38px;
+						color: #fff;
+						cursor: pointer;
+						transition: 0.5s;
+						background: none;
+
+						&:hover {
+							background-image: linear-gradient(to right, $red, $orange);
+						}
+					}
+				}
+
+				td {
+					border-left: 1px solid #787878;
+					color: #787878;
+
+					label {
+						color: $orange;
+					}
+
+					input[type='text'],
+					input[type='password'],
+					input[type='email'],
+					select,
+					textarea {
+						width: 70%;
+						background: transparent;
+						padding: 10px;
+						color: #787878;
+						border: 1px solid #787878;
+						resize: none;
+						box-sizing: border-box;
+					}
+					input[type='checkbox'],
+					input[type='radio'] {
+						margin-right: 30px;
+					}
+
+					select {
+						position: relative;
+						width: 70%;
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						-o-appearance: none;
+						appearance: none;
+						background: url(../../../public/img/ico_arrow.svg) no-repeat center right 10px;
+						background-size: 27px 15px;
+					}
+					input[type='checkbox'],
+					input[type='radio'] {
+						position: absolute;
+						width: 0;
+						height: 0;
+						overflow: hidden;
+					}
+
+					input[type='radio'] + label {
+						display: inline-block;
+						cursor: pointer;
+						line-height: 22px;
+						padding-left: 27px;
+						margin-right: 10px;
+						background: url('../../../public/img/ico_radio_off.svg') left/22px no-repeat;
+					}
+					input[type='radio']:checked + label {
+						background-image: url('../../../public/img/ico_radio_on.svg');
+					}
+
+					input[type='checkbox'] + label {
+						display: inline-block;
+						cursor: pointer;
+						line-height: 22px;
+						padding-left: 27px;
+						margin-right: 10px;
+						background: url('../../../public/img/ico_check_off.svg') left/22px no-repeat;
+					}
+					input[type='checkbox']:checked + label {
+						background-image: url('../../../public/img/ico_check_on.svg');
+					}
+
+					p {
+						color: $orange;
+						margin-top: 5px;
+						font: 11px/1 '맑은 고딕';
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1060px) {
+	.Member {
+		.content_wrap {
+			width: $width90;
+		}
+	}
+}
+@media screen and (max-width: 669px) {
+	.Member {
+		.content_wrap {
+			padding-bottom: 100px;
+			form {
+				table {
+					td {
+						input[type='text'],
+						input[type='password'],
+						input[type='email'],
+						select,
+						textarea,
+						.select {
+							width: 100%;
+						}
+
+						input[type='checkbox'] + label {
+							height: 30px;
+							line-height: 30px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 540px) {
+	.Member {
+		.content_wrap {
+			padding-bottom: 80px;
+			form {
+				table {
+					th {
+						display: block;
+						width: 100%;
+						padding: 16px 3%;
+						text-align: center;
+						box-sizing: border-box;
+
+						&:last-child {
+							border-bottom: 0;
+						}
+
+						input[type='submit'],
+						input[type='reset'] {
+							width: 100%;
+							margin: 0;
+							margin-bottom: 10px;
+						}
+					}
+
+					td {
+						display: block;
+						width: 100%;
+						padding: 16px 3%;
+						border-left: none;
+						box-sizing: border-box;
+
+						input[type='text'],
+						input[type='password'],
+						input[type='email'],
+						select,
+						textarea {
+						}
+					}
+				}
+			}
+		}
+	}
+}
