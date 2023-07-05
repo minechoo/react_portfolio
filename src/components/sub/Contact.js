@@ -16,21 +16,21 @@ function Contact() {
 	const { kakao } = window;
 	const info = [
 		{
-			title: '코엑스',
+			title: '본점',
 			latlng: new kakao.maps.LatLng(37.51100661425726, 127.06162026853143),
 			imgSrc: `${process.env.PUBLIC_URL}/img/marker.png`,
 			imgSize: new kakao.maps.Size(70, 60),
 			imgPos: { offset: new kakao.maps.Point(15, 60) },
 		},
 		{
-			title: '넥슨 본사',
+			title: '지점 A',
 			latlng: new kakao.maps.LatLng(37.40211707077346, 127.10344953763003),
 			imgSrc: `${process.env.PUBLIC_URL}/img/marker.png`,
 			imgSize: new kakao.maps.Size(70, 60),
 			imgPos: { offset: new kakao.maps.Point(15, 60) },
 		},
 		{
-			title: '서울 시청',
+			title: '지점 C',
 			latlng: new kakao.maps.LatLng(37.5662952, 126.9779451),
 			imgSrc: `${process.env.PUBLIC_URL}/img/marker.png`,
 			imgSize: new kakao.maps.Size(70, 60),
@@ -101,7 +101,12 @@ function Contact() {
 	}, [Traffic]);
 
 	return (
-		<Layout name={'Contact'}>
+		<Layout
+			name={'Contact'}
+			txt={
+				'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed.'
+			}
+		>
 			<section className='map_wrap'>
 				<div id='map' ref={container}></div>
 			</section>

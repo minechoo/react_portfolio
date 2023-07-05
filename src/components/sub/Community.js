@@ -2,9 +2,17 @@ import Layout from '../common/Layout';
 import { useRef, useState, useEffect } from 'react';
 
 function Community() {
+	const getLocalData = () => {
+		const data = localStorage.getItem('post');
+		return JSON.parse(data);
+	};
+
 	const input = useRef(null);
 	const textarea = useRef(null);
-	const [Posts, setPosts] = useState([]);
+	const editInput = useRef(null);
+	const editTextarea = useRef(null);
+	const [Posts, setPosts] = useState(getLocalData());
+	const [Allowed, setAllowed] = useState(true);
 
 	const resetForm = () => {
 		input.current.value = '';
@@ -25,8 +33,59 @@ function Community() {
 		setPosts(Posts.filter((_, idx) => idx !== delIndex));
 	};
 
+	const enableUpdate = (editIndex) => {
+		if (!Allowed) return;
+		setAllowed(false);
+		setPosts(
+			Posts.map((post, postIndex) => {
+				if (editIndex === postIndex) post.enableUpdate = true;
+				return post;
+			})
+		);
+		setAllowed(true);
+	};
+
+	const disableUpdate = (editIndex) => {
+		setPosts(
+			Posts.map((post, postIndex) => {
+				if (editIndex === postIndex) post.enableUpdate = false;
+				return post;
+			})
+		);
+	};
+
+	const updatePost = (editIndex) => {
+		if (!editInput.current.value.trim() || !editTextarea.current.value.trim()) {
+			return alert('수정할 제목과 본문을 모두 입력하세요.');
+		}
+		setPosts(
+			Posts.map((post, postIndex) => {
+				if (postIndex === editIndex) {
+					post.title = editInput.current.value;
+					post.content = editTextarea.current.value;
+					post.enableUpdate = false;
+				}
+				return post;
+			})
+		);
+		setAllowed(true);
+	};
+
+	useEffect(() => {
+		localStorage.setItem('post', JSON.stringify(Posts));
+	}, [Posts]);
+
+	useEffect(() => {
+		console.log(Allowed);
+	}, [Allowed]);
+
 	return (
-		<Layout name={'Community'}>
+		<Layout
+			name={'Community'}
+			txt={
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+			}
+		>
 			<div className='inputBox'>
 				<input type='text' placeholder='제목을 입력하세요' ref={input} />
 				<br />
@@ -41,15 +100,32 @@ function Community() {
 				{Posts.map((post, idx) => {
 					return (
 						<article key={idx}>
-							<div className='txt'>
-								<h2>{post.title}</h2>
-								<p>{post.content}</p>
-							</div>
-
-							<nav className='btnSet'>
-								<button>EDIT</button>
-								<button onClick={() => deletePost(idx)}>DELETE</button>
-							</nav>
+							{post.enableUpdate ? (
+								//수정모드
+								<>
+									<div className='txt'>
+										<input type='text' defaultValue={post.title} ref={editInput} />
+										<br />
+										<textarea cols='30' rows='3' defaultValue={post.content} ref={editTextarea}></textarea>
+									</div>
+									<nav className='btnSet'>
+										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
+										<button onClick={() => updatePost(idx)}>UPDATE</button>
+									</nav>
+								</>
+							) : (
+								//출력모드
+								<>
+									<div className='txt'>
+										<h2>{post.title}</h2>
+										<p>{post.content}</p>
+									</div>
+									<nav className='btnSet'>
+										<button onClick={() => enableUpdate(idx)}>EDIT</button>
+										<button onClick={() => deletePost(idx)}>DELETE</button>
+									</nav>
+								</>
+							)}
 						</article>
 					);
 				})}

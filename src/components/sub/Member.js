@@ -12,9 +12,9 @@ function Member() {
 		pwd1: '',
 		pwd2: '',
 		email: '',
-		gender: false,
-		interests: false,
-		edu: null,
+		gender: '',
+		interests: [],
+		edu: '',
 		comments: '',
 	};
 
@@ -28,17 +28,19 @@ function Member() {
 	};
 
 	const handleRadio = (e) => {
-		const { name, checked } = e.target;
-		setVal({ ...Val, [name]: checked });
+		const { name, value } = e.target;
+		setVal({ ...Val, [name]: value });
 	};
 
 	const handleCheck = (e) => {
 		const { name } = e.target;
-		let isChecked = false;
 		const inputs = e.target.parentElement.querySelectorAll('input');
 
-		inputs.forEach((el) => el.checked && (isChecked = true));
-		setVal({ ...Val, [name]: isChecked });
+		let checkArr = [];
+		inputs.forEach((el) => {
+			if (el.checked) checkArr.push(el.value);
+		});
+		setVal({ ...Val, [name]: checkArr });
 	};
 
 	const handleSelect = (e) => {
@@ -70,10 +72,10 @@ function Member() {
 		if (value.email.length < 8 || !/@/.test(value.email)) {
 			errs.email = '8자글자이상 @를 포함하세요';
 		}
-		if (!value.gender) {
+		if (value.gender === '') {
 			errs.gender = '성별을 체크해주세요';
 		}
-		if (!value.interest) {
+		if (value.interests.length === 0) {
 			errs.interest = '취미를 고르세요';
 		}
 		if (value.edu === '') {
@@ -96,6 +98,10 @@ function Member() {
 	};
 
 	useEffect(() => {
+		console.log(Val);
+	}, [Val]);
+
+	useEffect(() => {
 		const len = Object.keys(Err).length;
 		if (len === 0 && Submit) {
 			alert('모든 인증을 통과했습니다');
@@ -105,7 +111,12 @@ function Member() {
 	}, [Err]);
 
 	return (
-		<Layout name={'Member'}>
+		<Layout
+			name={'Member'}
+			txt={
+				'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa ultricies mi quis hendrerit dolor magna eget est.'
+			}
+		>
 			<button onClick={() => history.goBack()} className='btn_line'>
 				뒤로 가기
 			</button>
@@ -181,10 +192,10 @@ function Member() {
 							<tr>
 								<th scope='row'>GENDER</th>
 								<td ref={radioGroup}>
-									<input type='radio' name='gender' id='male' onChange={handleRadio} />
+									<input type='radio' name='gender' id='male' value='male' onChange={handleRadio} />
 									<label htmlFor='male'>Male</label>
 
-									<input type='radio' name='gender' id='female' onChange={handleRadio} />
+									<input type='radio' name='gender' id='female' value='female' onChange={handleRadio} />
 									<label htmlFor='female'>Female</label>
 									<br />
 									{Err.gender && <p>{Err.gender}</p>}
@@ -232,6 +243,7 @@ function Member() {
 										rows='3'
 										value={Val.comments}
 										onChange={handleChange}
+										placeholder='남기는 말을 입력하세요.'
 									></textarea>
 									<br />
 									{Err.comments && <p>{Err.comments}</p>}

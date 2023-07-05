@@ -14,8 +14,9 @@
 
 			input[type='text'],
 			textarea {
-				width: 50%;
+				width: 100%;
 				padding: 8px 10px;
+				font-family: 'Montserrat';
 				color: #fff;
 				font-size: 17px;
 				line-height: 1.2;
@@ -31,15 +32,26 @@
 			}
 
 			.btnSet {
+				text-align: right;
 				button {
-					width: 150px;
-					height: 30px;
-					display: inline-block;
-					border: none;
-					background: #555;
-					margin-right: 20px;
+					width: 22%;
+					height: 40px;
+					border: 1px solid transparent;
+					border-image: linear-gradient(to right, #cd5772 0%, #ce6a52 100%);
+					border-image-slice: 1;
+					margin-left: 10px;
+					font-family: 'Montserrat';
+					font-weight: 600;
+					font-size: 14px;
+					line-height: 38px;
 					color: #fff;
 					cursor: pointer;
+					transition: 0.5s;
+					background: none;
+
+					&:hover {
+						background-image: linear-gradient(to right, #cd5772, #ce6a52);
+					}
 				}
 			}
 		}
@@ -65,15 +77,28 @@
 				border: 1px solid transparent;
 				border-image: linear-gradient(to right, $red 0%, $orange 100%);
 				border-image-slice: 1;
+				box-sizing: border-box;
 
 				.txt {
-					width: 88%;
+					width: 100%;
+
 					h2 {
 						margin-bottom: 10px;
 					}
+					input,
+					textarea {
+						width: 100%;
+						padding: 8px 10px;
+						border: 1px solid lightblue;
+						margin-bottom: 20px;
+						background: #f4ffff;
+						resize: none;
+						outline: none;
+						box-sizing: border-box;
+					}
 				}
 				.btnSet {
-					width: 10%;
+					width: 100%;
 					display: flex;
 					align-items: center;
 					justify-content: flex-end;
@@ -89,6 +114,39 @@
 						&:nth-of-type(2) {
 							color: orangered;
 						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	.Community {
+		> .inner {
+			.inputBox {
+				input[type='text'],
+				textarea {
+					width: 100%;
+				}
+				.btnSet {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+
+					button {
+						width: 47%;
+						margin-right: 0;
+					}
+				}
+			}
+
+			.showBox {
+				article {
+					.txt,
+					.btnSet {
+						width: 100%;
+						margin-top: 20px;
 					}
 				}
 			}

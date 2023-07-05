@@ -13,7 +13,12 @@ function Department() {
 	}, []);
 
 	return (
-		<Layout name={'Department'}>
+		<Layout
+			name={'Department'}
+			txt={
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc.'
+			}
+		>
 			<div className='wrap'>
 				{Members.map((member, idx) => {
 					return (
@@ -43,17 +48,15 @@ function Department() {
 						</h1>
 
 						<p className='ex'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sapiente sunt et ex
-							dolorum accusamus atque iusto harum esse ipsum, voluptatem quibusdam accusantium
-							laborum tenetur qui ad dignissimos vel at. Ducimus cum ab doloremque fugiat libero
-							corrupti! Ea repudiandae laudantium quo, optio pariatur fuga maiores nobis est
-							molestiae magnam reiciendis aliquam, blanditiis odit inventore at? Modi esse quo
-							consequuntur incidunt necessitatibus maxime exercitationem ipsam, nulla aperiam iusto
-							magnam magni earum.
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sapiente sunt et ex dolorum accusamus atque
+							iusto harum esse ipsum, voluptatem quibusdam accusantium laborum tenetur qui ad dignissimos vel at.
+							Ducimus cum ab doloremque fugiat libero corrupti! Ea repudiandae laudantium quo, optio pariatur fuga
+							maiores nobis est molestiae magnam reiciendis aliquam, blanditiis odit inventore at? Modi esse quo
+							consequuntur incidunt necessitatibus maxime exercitationem ipsam, nulla aperiam iusto magnam magni earum.
 						</p>
 						<p className='ex it'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure recusandae corrupti
-							mollitia dolor repellendus quia reiciendis, quisquam tempora asperiores ducimus.
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure recusandae corrupti mollitia dolor
+							repellendus quia reiciendis, quisquam tempora asperiores ducimus.
 						</p>
 
 						<span className='line_deco_02'></span>

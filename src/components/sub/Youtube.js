@@ -22,7 +22,12 @@ function Youtube() {
 	}, []);
 	return (
 		<>
-			<Layout name={'Youtube'}>
+			<Layout
+				name={'Youtube'}
+				txt={
+					'tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras.'
+				}
+			>
 				{Vids.map((vid, idx) => {
 					let number = idx + 1;
 					return (

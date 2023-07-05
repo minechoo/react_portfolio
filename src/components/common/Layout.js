@@ -1,6 +1,7 @@
+import React from 'react';
 import { useEffect, useRef } from 'react';
 
-function Layout({ name, children }) {
+function Layout({ name, children, txt = 'Default' }) {
 	const frame = useRef(null);
 
 	useEffect(() => {
@@ -13,10 +14,7 @@ function Layout({ name, children }) {
 					<div className='txt_box'>
 						<span>MEETOUR</span>
 						<h1>{name}</h1>
-						<p className='ex_p'>
-							orem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci accusantium aliquid
-							delectus quia! Soluta, nobis!
-						</p>
+						<p className='ex_p'>{txt}</p>
 					</div>
 				</div>
 				<div className='content_wrap'>{children}</div>
