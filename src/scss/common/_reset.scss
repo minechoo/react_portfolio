@@ -78,7 +78,11 @@ summary,
 time,
 mark,
 audio,
-video {
+video,
+input,
+textarea,
+select,
+button {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -126,12 +130,6 @@ q:after {
 }
 a {
 	text-decoration: none;
-}
-button {
-	border: none;
-}
-fieldset {
-	border: none;
 }
 table {
 	border-collapse: collapse;
