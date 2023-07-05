@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react_portfolio/static/css/main.f7dae7d0.css",
-    "main.js": "/react_portfolio/static/js/main.ea7f12ee.js",
+    "main.css": "/react_portfolio/static/css/main.d9168a5f.css",
+    "main.js": "/react_portfolio/static/js/main.ab4daa19.js",
     "static/media/Montserrat-Medium.woff2": "/react_portfolio/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
     "static/media/Montserrat-ExtraBold.woff2": "/react_portfolio/static/media/Montserrat-ExtraBold.e90b215d7f376e5fa8ae.woff2",
     "static/media/Montserrat-Regular.woff2": "/react_portfolio/static/media/Montserrat-Regular.58a8d7ebc386843b62c5.woff2",
@@ -12,12 +12,17 @@
     "static/media/Montserrat-ExtraLight.woff2": "/react_portfolio/static/media/Montserrat-ExtraLight.f8bced5ff3fb68517cbf.woff2",
     "static/media/Montserrat-Thin.woff2": "/react_portfolio/static/media/Montserrat-Thin.483aa3e18a5558acdee2.woff2",
     "static/media/bg_footer.png": "/react_portfolio/static/media/bg_footer.851bc9b1e46efba35569.png",
+    "static/media/ico_check_on.svg": "/react_portfolio/static/media/ico_check_on.44887f0355bef316a9e6.svg",
+    "static/media/ico_radio_on.svg": "/react_portfolio/static/media/ico_radio_on.0cacf1ae696ea4d19d5a.svg",
+    "static/media/ico_check_off.svg": "/react_portfolio/static/media/ico_check_off.ef7cd70fa339b4ad1126.svg",
+    "static/media/ico_radio_off.svg": "/react_portfolio/static/media/ico_radio_off.e00da37109186ab4e852.svg",
     "index.html": "/react_portfolio/index.html",
-    "main.f7dae7d0.css.map": "/react_portfolio/static/css/main.f7dae7d0.css.map",
-    "main.ea7f12ee.js.map": "/react_portfolio/static/js/main.ea7f12ee.js.map"
+    "static/media/ico_arrow.svg": "/react_portfolio/static/media/ico_arrow.2f70354432be237436b1.svg",
+    "main.d9168a5f.css.map": "/react_portfolio/static/css/main.d9168a5f.css.map",
+    "main.ab4daa19.js.map": "/react_portfolio/static/js/main.ab4daa19.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7dae7d0.css",
-    "static/js/main.ea7f12ee.js"
+    "static/css/main.d9168a5f.css",
+    "static/js/main.ab4daa19.js"
   ]
 }

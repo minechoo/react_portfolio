@@ -79,6 +79,10 @@
 				border-image-slice: 1;
 				box-sizing: border-box;
 
+				&:last-child {
+					margin-bottom: 0;
+				}
+
 				.txt {
 					width: 100%;
 
@@ -89,9 +93,13 @@
 					textarea {
 						width: 100%;
 						padding: 8px 10px;
-						border: 1px solid lightblue;
 						margin-bottom: 20px;
-						background: #f4ffff;
+						color: #fff;
+						font-size: 17px;
+						line-height: 1.2;
+						font-weight: 300;
+						border: 1px solid #bbb;
+						background: transparent;
 						resize: none;
 						outline: none;
 						box-sizing: border-box;
