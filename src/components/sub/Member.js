@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Layout from '../common/Layout';
 import { useHistory } from 'react-router-dom';
 
 function Member() {
+	const selectEl = useRef(null);
+	const radioGroup = useRef(null);
+	const checkGroup = useRef(null);
 	const history = useHistory();
 	const initVal = {
 		userid: '',
@@ -11,7 +14,7 @@ function Member() {
 		email: '',
 		gender: false,
 		interests: false,
-		edu: '',
+		edu: null,
 		comments: '',
 	};
 
@@ -58,12 +61,7 @@ function Member() {
 		if (value.userid.length < 5) {
 			errs.userid = '아이디를 5글자 이상 입력하세요';
 		}
-		if (
-			value.pwd1.length < 5 ||
-			!eng.test(value.pwd1) ||
-			!num.test(value.pwd1) ||
-			!spc.test(value.pwd1)
-		) {
+		if (value.pwd1.length < 5 || !eng.test(value.pwd1) || !num.test(value.pwd1) || !spc.test(value.pwd1)) {
 			errs.pwd1 = '비밀번호는 5글자이상, 영문, 숫자, 특수문자를 포함하세요';
 		}
 		if (value.pwd1 !== value.pwd2 || !value.pwd2) {
@@ -87,11 +85,22 @@ function Member() {
 		return errs;
 	};
 
+	const resetForm = () => {
+		const select = selectEl.current.options[0];
+		const checks = checkGroup.current.querySelectorAll('input');
+		const radios = radioGroup.current.querySelectorAll('input');
+		select.selected = true;
+		checks.forEach((el) => (el.checked = false));
+		radios.forEach((el) => (el.checked = false));
+		setVal(initVal);
+	};
+
 	useEffect(() => {
 		const len = Object.keys(Err).length;
 		if (len === 0 && Submit) {
 			alert('모든 인증을 통과했습니다');
-			history.push('/');
+			//history.push('/');
+			resetForm();
 		}
 	}, [Err]);
 
@@ -171,7 +180,7 @@ function Member() {
 							</tr>
 							<tr>
 								<th scope='row'>GENDER</th>
-								<td>
+								<td ref={radioGroup}>
 									<input type='radio' name='gender' id='male' onChange={handleRadio} />
 									<label htmlFor='male'>Male</label>
 
@@ -183,32 +192,14 @@ function Member() {
 							</tr>
 							<tr>
 								<th scope='row'>INTEREST</th>
-								<td>
-									<input
-										type='checkbox'
-										name='interest'
-										id='music'
-										value='music'
-										onChange={handleCheck}
-									/>
+								<td ref={checkGroup}>
+									<input type='checkbox' name='interest' id='music' value='music' onChange={handleCheck} />
 									<label htmlFor='music'>music</label>
 
-									<input
-										type='checkbox'
-										name='interest'
-										id='dance'
-										value='dance'
-										onChange={handleCheck}
-									/>
+									<input type='checkbox' name='interest' id='dance' value='dance' onChange={handleCheck} />
 									<label htmlFor='dance'>dance</label>
 
-									<input
-										type='checkbox'
-										name='interest'
-										id='book'
-										value='book'
-										onChange={handleCheck}
-									/>
+									<input type='checkbox' name='interest' id='book' value='book' onChange={handleCheck} />
 									<label htmlFor='book'>book</label>
 									<br />
 									{Err.interest && <p>{Err.interest}</p>}
@@ -219,7 +210,7 @@ function Member() {
 									<label htmlFor='edu'>EDUCATION</label>
 								</th>
 								<td>
-									<select name='edu' id='edu' onChange={handleSelect}>
+									<select name='edu' id='edu' onChange={handleSelect} ref={selectEl}>
 										<option value=''>최종학력을 선택하세요</option>
 										<option value='elementary-school'>초등학교 졸업</option>
 										<option value='middle-school'>중학교 졸업</option>
