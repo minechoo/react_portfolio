@@ -34,7 +34,11 @@ function Youtube() {
 						<article key={idx}>
 							<div>
 								<div className='number'>.0{number}</div>
-								<h2>{vid.snippet.title.length > 50 ? vid.snippet.title.substr(0, 50) + '...' : vid.snippet.title}</h2>
+								<h2>
+									{vid.snippet.title.length > 50
+										? vid.snippet.title.substr(0, 50) + '...'
+										: vid.snippet.title}
+								</h2>
 								<p>
 									{vid.snippet.description.length > 100
 										? vid.snippet.description.substr(0, 100) + '...'

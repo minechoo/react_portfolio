@@ -71,7 +71,7 @@ header {
 			box-sizing: border-box;
 			z-index: 10;
 			transform: translate(280px, 0);
-			transition: 0.5s cubic-bezier(0.51, -0.17, 0.47, 1);
+			transition: 0.5s;
 			clip-path: polygon(25% 0%, 100% 0, 100% 50%, 100% 100%, 25% 100%, 0% 50%);
 
 			&.on {
