@@ -17,10 +17,10 @@ function Main() {
 			<Header type={'main'} />
 			<main>
 				<Visual />
-				<News />
 				<Pics Scrolled={Scrolled} Pos={Pos[2]} />
 				<Vids />
-				<Banner />
+				<News />
+				{/* <Banner /> */}
 				<Btns setScrolled={setScrolled} setPos={setPos} />
 			</main>
 		</>

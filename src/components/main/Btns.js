@@ -43,7 +43,7 @@ function Btns({ setScrolled, setPos }) {
 	}, []);
 
 	return (
-		<ul className='btnNavi' ref={btnRef}>
+		<ul className='indicate' ref={btnRef}>
 			{Array(Num)
 				.fill()
 				.map((_, idx) => {
