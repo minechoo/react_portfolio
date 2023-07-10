@@ -26,8 +26,7 @@ function Gallery() {
 		//const myId = '194260994@N06';
 		let counter = 0;
 
-		if (opt.type === 'interest')
-			url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
+		if (opt.type === 'interest') url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
 		if (opt.type === 'search')
 			url = `${baseURL}&api_key=${key}&method=${method_search}&per_page=${num}&tags=${opt.tags}`;
 		if (opt.type === 'user')
@@ -158,16 +157,11 @@ function Gallery() {
 											</div>
 											<p>{item.title === '' ? 'Have a good day!!' : item.title}</p>
 
-											<div class='profile'>
+											<div className='profile'>
 												<img
 													src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
 													alt={item.owner}
-													onError={(e) =>
-														e.target.setAttribute(
-															'src',
-															'https://www.flickr.com/images/buddyicon.gif'
-														)
-													}
+													onError={(e) => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
 												/>
 												<span
 													className='userid'
@@ -188,13 +182,7 @@ function Gallery() {
 							})}
 						</Masonry>
 					</ul>
-					{Loader && (
-						<img
-							className='loading'
-							src={`${process.env.PUBLIC_URL}/img/circle.svg`}
-							alt='loader'
-						/>
-					)}
+					{Loader && <img className='loading' src={`${process.env.PUBLIC_URL}/img/circle.svg`} alt='loader' />}
 				</>
 			</Layout>
 			<Modal ref={openModal}>
