@@ -51,7 +51,7 @@ function Btns({ setScrolled, setPos }) {
 					if (idx === 0) defaultClass = 'on';
 					return (
 						<li
-							kdy={idx}
+							key={idx}
 							className={defaultClass}
 							onClick={() => {
 								new Anime(window, {

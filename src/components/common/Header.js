@@ -1,15 +1,14 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Menu from './Menu';
 
-function Header({ type }) {
+function Header({ type, menu }) {
+	// const active = { color: 'aqua' };
 	const active = 'on';
-	const menu = useRef(null);
-	const gnb = useRef(null);
-	const btnG = useRef(null);
-	const toggleMenu = useRef(null);
+	// const menu = useRef(null);
+	// const gnb = useRef(null);
+	// const btnG = useRef(null);
+	//const toggleMenu = useRef(null);
 	//const body = document.querySelector('body');
 
 	// useEffect(() => {
@@ -30,7 +29,7 @@ function Header({ type }) {
 				<h1>
 					<Link to='/'>MOBILE</Link>
 				</h1>
-				<div className='gnb_wrap' ref={gnb}>
+				<div className='gnb_wrap'>
 					<ul id='gnb'>
 						<li>
 							<NavLink to='/department' activeClassName={active}>
@@ -64,23 +63,23 @@ function Header({ type }) {
 						</li>
 					</ul>
 
-					<button className='close_button' id='close_button' ref={btnG}>
+					{/* <button className='close_button' id='close_button'>
 						Close Menu<span></span>
 						<span></span>
-					</button>
+					</button> */}
 				</div>
 
-				<div id='menu' ref={menu}>
+				<div id='menu'>
 					<FontAwesomeIcon
 						icon={faBars}
 						onClick={() => {
-							toggleMenu.current.toggle();
+							menu.current.toggle();
 						}}
 					/>
 				</div>
 			</header>
 
-			<Menu ref={toggleMenu} />
+			{/* <Menu ref={toggleMenu} /> */}
 		</>
 	);
 }

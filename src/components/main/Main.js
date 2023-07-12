@@ -4,17 +4,17 @@ import Visual from './Visual';
 import News from './News';
 import Pics from './Pics';
 import Vids from './Vids';
-import Banner from './Banner';
+//import Banner from './Banner';
 import Btns from './Btns';
 
 import { useState } from 'react';
 
-function Main() {
+function Main({ menu }) {
 	const [Scrolled, setScrolled] = useState(0);
 	const [Pos, setPos] = useState([]);
 	return (
 		<>
-			<Header type={'main'} />
+			<Header type={'main'} menu={menu} />
 			<main>
 				<Visual />
 				<Pics Scrolled={Scrolled} Pos={Pos[2]} />

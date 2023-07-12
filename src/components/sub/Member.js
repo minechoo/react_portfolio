@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Layout from '../common/Layout';
 import { useHistory } from 'react-router-dom';
 
@@ -7,18 +7,20 @@ function Member() {
 	const radioGroup = useRef(null);
 	const checkGroup = useRef(null);
 	const history = useHistory();
-	const initVal = {
-		userid: '',
-		pwd1: '',
-		pwd2: '',
-		email: '',
-		gender: '',
-		interests: [],
-		edu: '',
-		comments: '',
-	};
+	const initVal = useRef(() => {
+		return {
+			userid: '',
+			pwd1: '',
+			pwd2: '',
+			email: '',
+			gender: '',
+			interests: [],
+			edu: '',
+			comments: '',
+		};
+	}, []);
 
-	const [Val, setVal] = useState(initVal);
+	const [Val, setVal] = useState(initVal.current);
 	const [Err, setErr] = useState({});
 	const [Submit, setSubmit] = useState(false);
 
@@ -87,7 +89,7 @@ function Member() {
 		return errs;
 	};
 
-	const resetForm = () => {
+	const resetForm = useCallback(() => {
 		const select = selectEl.current.options[0];
 		const checks = checkGroup.current.querySelectorAll('input');
 		const radios = radioGroup.current.querySelectorAll('input');
@@ -95,7 +97,7 @@ function Member() {
 		checks.forEach((el) => (el.checked = false));
 		radios.forEach((el) => (el.checked = false));
 		setVal(initVal);
-	};
+	}, []);
 
 	useEffect(() => {
 		console.log(Val);
@@ -108,7 +110,7 @@ function Member() {
 			//history.push('/');
 			resetForm();
 		}
-	}, [Err]);
+	}, [Err, Submit, resetForm]);
 
 	return (
 		<Layout
