@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimeline } from '@fortawesome/free-solid-svg-icons';
 import { faUsersRectangle } from '@fortawesome/free-solid-svg-icons';
 import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
+import { memo } from 'react';
 
 function News() {
 	const dummy = [
@@ -22,7 +23,7 @@ function News() {
 
 	useEffect(() => {
 		localStorage.setItem('post', JSON.stringify(Posts));
-	}, []);
+	}, [Posts]);
 
 	return (
 		<section id='news' className='myScroll'>
@@ -50,16 +51,14 @@ function News() {
 							<FontAwesomeIcon icon={faTimeline} />
 							<h3>About this job</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in,
-								fugit obcaecati.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in, fugit obcaecati.
 							</p>
 						</div>
 						<div className='area_inner'>
 							<FontAwesomeIcon icon={faUsersRectangle} />
 							<h3>Tool we use</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in,
-								fugit obcaecati.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in, fugit obcaecati.
 							</p>
 							<ul>
 								<li>javascript</li>
@@ -71,8 +70,7 @@ function News() {
 							<FontAwesomeIcon icon={faRectangleList} />
 							<h3>Potential tasks</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in,
-								fugit obcaecati.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in, fugit obcaecati.
 							</p>
 						</div>
 					</div>
@@ -82,4 +80,4 @@ function News() {
 	);
 }
 
-export default News;
+export default memo(News);
