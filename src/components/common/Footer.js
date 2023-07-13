@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Footer() {
+	const Members = useSelector((store) => store.memberReducer.members);
 	return (
 		<footer>
 			<div className='content'>
@@ -8,10 +10,8 @@ function Footer() {
 					<h1>
 						<Link to='/'>MOBILE</Link>
 					</h1>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi
-						exercitationem quod aliquid
-					</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi exercitationem quod aliquid</p>
+					<p>{`This Institude was established by ${Members[0]?.name} in 1995`}</p>
 					<ul className='sns'>
 						<li>
 							<i className='fa-brands fa-twitter'></i>
