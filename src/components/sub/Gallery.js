@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import Modal from '../common/Modal';
+import { useCallback } from 'react';
 
 function Gallery() {
 	const openModal = useRef(null);
@@ -14,8 +15,9 @@ function Gallery() {
 	const [Items, setItems] = useState([]);
 	const [Loader, setLoader] = useState(true);
 	const [Index, setIndex] = useState(0);
+	const [Mounted, setMounted] = useState(true);
 
-	const getFlickr = async (opt) => {
+	const getFlickr = useCallback(async (opt) => {
 		const baseURL = 'https://www.flickr.com/services/rest/?format=json&nojsoncallback=1';
 		const key = '86fbba2c96b5252a51879bc23af1f41e';
 		const method_interest = 'flickr.interestingness.getList';
@@ -26,7 +28,8 @@ function Gallery() {
 		//const myId = '194260994@N06';
 		let counter = 0;
 
-		if (opt.type === 'interest') url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
+		if (opt.type === 'interest')
+			url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
 		if (opt.type === 'search')
 			url = `${baseURL}&api_key=${key}&method=${method_search}&per_page=${num}&tags=${opt.tags}`;
 		if (opt.type === 'user')
@@ -59,7 +62,7 @@ function Gallery() {
 				}
 			};
 		});
-	};
+	}, []);
 
 	const resetGallery = (e) => {
 		const btns = btnSet.current.querySelectorAll('button');
@@ -107,7 +110,12 @@ function Gallery() {
 
 	//getFlickr({type: 'search', tags: 'landscape'})
 
-	useEffect(() => getFlickr({ type: 'user', user: '194260994@N06' }), []);
+	useEffect(() => {
+		getFlickr({ type: 'user', user: '194260994@N06' });
+		return () => {
+			setMounted(false);
+		};
+	}, [getFlickr]);
 	// useEffect(() => getFlickr({ type: 'interest' }), []);
 
 	return (
@@ -161,7 +169,12 @@ function Gallery() {
 												<img
 													src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
 													alt={item.owner}
-													onError={(e) => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
+													onError={(e) =>
+														e.target.setAttribute(
+															'src',
+															'https://www.flickr.com/images/buddyicon.gif'
+														)
+													}
 												/>
 												<span
 													className='userid'
@@ -182,7 +195,13 @@ function Gallery() {
 							})}
 						</Masonry>
 					</ul>
-					{Loader && <img className='loading' src={`${process.env.PUBLIC_URL}/img/circle.svg`} alt='loader' />}
+					{Loader && (
+						<img
+							className='loading'
+							src={`${process.env.PUBLIC_URL}/img/circle.svg`}
+							alt='loader'
+						/>
+					)}
 				</>
 			</Layout>
 			<Modal ref={openModal}>

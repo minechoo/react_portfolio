@@ -2,24 +2,15 @@ import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
 import Layout from '../common/Layout';
 import Modal from '../common/Modal';
+import { useSelector, useDispatch } from 'react-redux';
+import { setYoutube } from '../../redux/action';
 
 function Youtube() {
+	const dispatch = useDispatch();
+	const Vids = useSelector((store) => store.youtubeReducer.youtube);
 	const modal = useRef(null);
-	const [Vids, setVids] = useState([]);
 	const [Index, setIndex] = useState(0);
 
-	const fetchYoutube = async () => {
-		const key = 'AIzaSyANMdnk7q2cBX8tqGJZXpVFH9bGJMOwmEc'; //api 키
-		const list = 'PLMafzyXZ12TPBYgeplFEdJeSMcJvb3v5u'; //class 브라우저 상단값
-		const num = 8;
-		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${list}&key=${key}&maxResults=${num}`;
-
-		const result = await axios.get(url);
-		setVids(result.data.items);
-	};
-	useEffect(() => {
-		fetchYoutube();
-	}, []);
 	return (
 		<>
 			<Layout
