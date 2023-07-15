@@ -18,8 +18,18 @@ import Department from './components/sub/Department';
 import './scss/style.scss';
 import { useRef } from 'react';
 
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as types from './redux/actionType';
+
 function App() {
 	const menu = useRef(null);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch({ type: types.YOUTUBE.start });
+	}, [dispatch]);
+
 	return (
 		<>
 			<Switch>

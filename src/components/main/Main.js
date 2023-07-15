@@ -17,8 +17,8 @@ function Main({ menu }) {
 			<Header type={'main'} menu={menu} />
 			<main>
 				<Visual />
-				<Pics Scrolled={Scrolled} Pos={Pos[2]} />
 				<Vids />
+				<Pics Scrolled={Scrolled} Pos={Pos[2]} />
 				<News />
 				{/* <Banner /> */}
 				<Btns setScrolled={setScrolled} setPos={setPos} />

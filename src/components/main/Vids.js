@@ -1,7 +1,42 @@
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
 
 function Vids() {
-	return <section id='vids' className='myScroll'></section>;
+	const Vids = useSelector((store) => store.youtubeReducer.youtube);
+	console.log(Vids);
+
+	return (
+		<section id='things' className='myScroll'>
+			<div className='big_txt'>C</div>
+			<div className='content'>
+				<div className='content_txt'>
+					<h1>
+						Careers at <span>Mobilex</span>
+					</h1>
+					<span className='line_deco'></span>
+					<p className='ex'>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae dignissimos officia nam
+						placeat eveniet molestiae? Dolorum id omnis, mollitia similique laboriosam, doloremque
+						blanditiis itaque labore laudantium explicabo rem reprehenderit vel!
+					</p>
+					<p className='ex it'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure recusandae corrupti
+						mollitia dolor repellendus quia reiciendis, quisquam tempora asperiores ducimus.
+					</p>
+				</div>
+			</div>
+			<section id='youtube'>
+				{Vids.map((vid, idx) => {
+					if (idx >= 4) return null;
+					return (
+						<div key={vid.id} className='con'>
+							<img src={vid.snippet.thumbnails.medium.url} alt={vid.snippet.title} />
+						</div>
+					);
+				})}
+			</section>
+		</section>
+	);
 }
 
 export default memo(Vids);

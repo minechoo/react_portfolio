@@ -1,5 +1,5 @@
 function Pics({ Scrolled, Pos }) {
-	console.log(Scrolled);
+	// console.log(Scrolled);
 	return (
 		<section id='pics' className='myScroll'>
 			<h1 style={{ transform: `translateX(${Scrolled - Pos}px)` }}>FLICKER</h1>
