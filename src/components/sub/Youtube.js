@@ -1,12 +1,9 @@
-import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Layout from '../common/Layout';
 import Modal from '../common/Modal';
-import { useSelector, useDispatch } from 'react-redux';
-import { setYoutube } from '../../redux/action';
+import { useSelector } from 'react-redux';
 
 function Youtube() {
-	const dispatch = useDispatch();
 	const Vids = useSelector((store) => store.youtubeReducer.youtube);
 	const modal = useRef(null);
 	const [Index, setIndex] = useState(0);

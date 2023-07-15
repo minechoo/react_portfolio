@@ -21,6 +21,17 @@ const youtubeReducer = (state = { youtube: [] }, action) => {
 	}
 };
 
-const reducers = combineReducers({ memberReducer, youtubeReducer });
+const galleryReducer = (state = { gallery: [] }, action) => {
+	switch (action.type) {
+		case 'SET_GALLERY':
+			//기존 state를 action.payload로 덮어쓰기
+			return { ...state, gallery: action.payload };
+
+		default:
+			return state;
+	}
+};
+
+const reducers = combineReducers({ memberReducer, youtubeReducer, galleryReducer });
 
 export default reducers;

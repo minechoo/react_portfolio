@@ -19,8 +19,7 @@ import './scss/style.scss';
 import { useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setMembers } from './redux/action';
-import { setYoutube } from './redux/action';
+import { setGallery, setMembers, setYoutube } from './redux/action';
 
 function App() {
 	const dispatch = useDispatch();
@@ -34,7 +33,7 @@ function App() {
 		dispatch(setMembers(result.data.members));
 	}, [dispatch]);
 
-	const fetchYoutube = async () => {
+	const fetchYoutube = useCallback(async () => {
 		const key = 'AIzaSyANMdnk7q2cBX8tqGJZXpVFH9bGJMOwmEc'; //api 키
 		const list = 'PLMafzyXZ12TPBYgeplFEdJeSMcJvb3v5u'; //class 브라우저 상단값
 		const num = 8;
@@ -42,12 +41,37 @@ function App() {
 
 		const result = await axios.get(url);
 		dispatch(setYoutube(result.data.items));
-	};
+	}, [dispatch]);
+
+	const fetchGallery = useCallback(
+		async (opt) => {
+			const baseURL = 'https://www.flickr.com/services/rest/?format=json&nojsoncallback=1';
+			const key = '86fbba2c96b5252a51879bc23af1f41e';
+			const method_interest = 'flickr.interestingness.getList';
+			const method_user = 'flickr.people.getPhotos';
+			const method_search = 'flickr.photos.search';
+			const num = 50;
+			let url = '';
+			//const myId = '194260994@N06';
+
+			if (opt.type === 'interest')
+				url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
+			if (opt.type === 'search')
+				url = `${baseURL}&api_key=${key}&method=${method_search}&per_page=${num}&tags=${opt.tags}`;
+			if (opt.type === 'user')
+				url = `${baseURL}&api_key=${key}&method=${method_user}&per_page=${num}&user_id=${opt.user}`;
+
+			const result = await axios.get(url);
+			dispatch(setGallery(result.data.photos.photo));
+		},
+		[dispatch]
+	);
 
 	useEffect(() => {
 		fetchMembers();
 		fetchYoutube();
-	}, [fetchMembers]);
+		fetchGallery();
+	}, [fetchMembers, fetchYoutube, fetchGallery]);
 
 	return (
 		<>
