@@ -24,7 +24,7 @@ function Gallery() {
 
 	useEffect(() => {
 		counter.current = 0;
-		if (Items.length.length === 0 && !firstLoaded.current) {
+		if (Items.length === 0 && !firstLoaded.current) {
 			setLoader(false);
 			frame.current.classList.add('on');
 			const btnMine = btnSet.current.children;
@@ -97,9 +97,9 @@ function Gallery() {
 
 	//setOpt({type: 'search', tags: 'landscape'})
 
-	// useEffect(() => {
-	// 	dispatch({ type: 'SET_GALLERY', opt: Opt });
-	// }, [Opt, dispatch]);
+	useEffect(() => {
+		dispatch({ type: 'SET_GALLERY', payload: Opt });
+	}, [Opt, dispatch]);
 
 	useEffect(() => {
 		setOpt({ type: 'user', user: '194260994@N06' });

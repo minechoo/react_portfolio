@@ -29,7 +29,7 @@ function App() {
 	const fetchMembers = useCallback(async () => {
 		const result = await axios.get(`${process.env.PUBLIC_URL}/DB/members.json`);
 		console.log(result.data.members);
-		//console.log(setMembers(result.data.members));
+		console.log(setMembers(result.data.members));
 		dispatch(setMembers(result.data.members));
 	}, [dispatch]);
 
@@ -41,6 +41,7 @@ function App() {
 
 		const result = await axios.get(url);
 		dispatch(setYoutube(result.data.items));
+		console.log(result.data.items);
 	}, [dispatch]);
 
 	const fetchGallery = useCallback(
@@ -61,8 +62,9 @@ function App() {
 			if (opt.type === 'user')
 				url = `${baseURL}&api_key=${key}&method=${method_user}&per_page=${num}&user_id=${opt.user}`;
 
-			const result = await axios.get(url);
-			dispatch(setGallery(result.data.photos.photo));
+			const resultG = await axios.get(url);
+			dispatch(setGallery(resultG.data.photos.photo));
+			console.log(setGallery(resultG.data.photos.photo));
 		},
 		[dispatch]
 	);
