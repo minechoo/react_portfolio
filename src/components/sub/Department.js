@@ -1,16 +1,8 @@
 import Layout from '../common/Layout';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function Department() {
-	const [Members, setMembers] = useState([]);
-	console.log(Members);
-
-	useEffect(() => {
-		axios.get(`${process.env.PUBLIC_URL}/DB/members.json`).then((data) => {
-			setMembers(data.data.members);
-		});
-	}, []);
+	const Members = useSelector((store) => store.departmentReducer.department);
 
 	return (
 		<Layout
@@ -48,15 +40,17 @@ function Department() {
 						</h1>
 
 						<p className='ex'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sapiente sunt et ex dolorum accusamus atque
-							iusto harum esse ipsum, voluptatem quibusdam accusantium laborum tenetur qui ad dignissimos vel at.
-							Ducimus cum ab doloremque fugiat libero corrupti! Ea repudiandae laudantium quo, optio pariatur fuga
-							maiores nobis est molestiae magnam reiciendis aliquam, blanditiis odit inventore at? Modi esse quo
-							consequuntur incidunt necessitatibus maxime exercitationem ipsam, nulla aperiam iusto magnam magni earum.
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit sapiente sunt et ex
+							dolorum accusamus atque iusto harum esse ipsum, voluptatem quibusdam accusantium
+							laborum tenetur qui ad dignissimos vel at. Ducimus cum ab doloremque fugiat libero
+							corrupti! Ea repudiandae laudantium quo, optio pariatur fuga maiores nobis est
+							molestiae magnam reiciendis aliquam, blanditiis odit inventore at? Modi esse quo
+							consequuntur incidunt necessitatibus maxime exercitationem ipsam, nulla aperiam iusto
+							magnam magni earum.
 						</p>
 						<p className='ex it'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure recusandae corrupti mollitia dolor
-							repellendus quia reiciendis, quisquam tempora asperiores ducimus.
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure recusandae corrupti
+							mollitia dolor repellendus quia reiciendis, quisquam tempora asperiores ducimus.
 						</p>
 
 						<span className='line_deco_02'></span>
