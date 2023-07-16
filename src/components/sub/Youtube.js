@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Layout from '../common/Layout';
 import Modal from '../common/Modal';
 import { useSelector } from 'react-redux';

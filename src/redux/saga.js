@@ -1,5 +1,5 @@
 import { takeLatest, put, call, fork, all } from 'redux-saga/effects';
-import { fetchYoutube, fetchDepartment } from './api';
+import { fetchYoutube, fetchDepartment, fetchFlickr } from './api';
 import * as types from './actionType';
 
 function* callYoutube() {
@@ -29,7 +29,21 @@ function* returnDepartment() {
 	}
 }
 
+//flickr saga
+function* callFlickr() {
+	yield takeLatest(types.FLICKR.start, returnFlickr);
+}
+function* returnFlickr(action) {
+	try {
+		//컴포넌트에 액션객체 전달시 만약 타입외의 propety값이 있다면 해당 값을 받아서 call함수 두번째 인수로 api함수에 인수로 전달 가능
+		const response = yield call(fetchFlickr, action.opt);
+		yield put({ type: types.FLICKR.success, payload: response.data.photos.photo });
+	} catch (err) {
+		yield put({ type: types.FLICKR.fail, payload: err });
+	}
+}
+
 //최종적으로 fork를 통해 callYoutube호출 함수 제작
 export default function* rootSaga() {
-	yield all([fork(callYoutube), fork(callDepartment)]);
+	yield all([fork(callYoutube), fork(callDepartment), fork(callFlickr)]);
 }
