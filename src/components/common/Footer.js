@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Footer() {
 	return (
@@ -8,10 +8,7 @@ function Footer() {
 					<h1>
 						<Link to='/'>MOBILE</Link>
 					</h1>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi
-						exercitationem quod aliquid
-					</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi exercitationem quod aliquid</p>
 					<ul className='sns'>
 						<li>
 							<i className='fa-brands fa-twitter'></i>

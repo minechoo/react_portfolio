@@ -17,9 +17,17 @@ import Department from './components/sub/Department';
 
 import './scss/style.scss';
 import { useRef } from 'react';
+import { fetchYoutube } from './redux/youtubeSlice';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 function App() {
 	const menu = useRef(null);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchYoutube());
+	}, [dispatch]);
+
 	return (
 		<>
 			<Switch>

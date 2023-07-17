@@ -153,52 +153,52 @@ body {
 		transition: 1s;
 	}
 
-	#youtube {
-		position: relative;
-		width: 100%;
-		height: 300px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+	// #youtube {
+	// 	position: relative;
+	// 	width: 100%;
+	// 	height: 300px;
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// 	align-items: center;
 
-		.con {
-			flex: 1;
-			height: 100%;
-			background: #000;
-			border-right: 1px solid #787878;
-			opacity: 0.7;
+	// 	.con {
+	// 		flex: 1;
+	// 		height: 100%;
+	// 		// background: #000;
+	// 		// border-right: 1px solid #787878;
+	// 		// opacity: 0.7;
 
-			&.on {
-				img {
-					opacity: 1;
-				}
-			}
+	// 		&.on {
+	// 			img {
+	// 				opacity: 1;
+	// 			}
+	// 		}
 
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				opacity: 0.7;
-				transition: 0.5s;
+	// 		img {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			object-fit: cover;
+	// 			opacity: 0.7;
+	// 			transition: 0.5s;
 
-				&:hover {
-					transform: scale(0.9);
-				}
-			}
+	// 			&:hover {
+	// 				transform: scale(0.9);
+	// 			}
+	// 		}
 
-			.bg_b {
-				width: 100%;
-				height: 100%;
-				background: #787878;
-				opacity: 0.7;
-				transition: 0.7s;
+	// 		.bg_b {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			background: #787878;
+	// 			opacity: 0.7;
+	// 			transition: 0.7s;
 
-				&:hover {
-					transform: scale(0.9);
-				}
-			}
-		}
-	}
+	// 			&:hover {
+	// 				transform: scale(0.9);
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
 #things.on {
 	.big_txt {
@@ -486,6 +486,7 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	right: 50px;
+	z-index: 10;
 
 	li {
 		width: 10px;
@@ -552,7 +553,7 @@ body {
 	#things {
 		.content .content_txt {
 			width: 70%;
-			margin-top: 60px;
+			margin: 100px 0 0;
 		}
 	}
 	#gallery {
@@ -641,7 +642,7 @@ body {
 			}
 			.content {
 				.content_txt {
-					margin: 50px 0;
+					margin: 50px 0 0;
 					h1 {
 						font-size: 27px;
 					}
