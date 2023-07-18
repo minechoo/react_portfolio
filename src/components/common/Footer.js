@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Footer() {
@@ -10,7 +10,10 @@ function Footer() {
 					<h1>
 						<Link to='/'>MOBILE</Link>
 					</h1>
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi exercitationem quod aliquid</p>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi
+						exercitationem quod aliquid
+					</p>
 					<p>{`This Institude was established by ${Members[0]?.name} in 1995`}</p>
 					<ul className='sns'>
 						<li>

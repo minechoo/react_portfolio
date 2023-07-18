@@ -29,7 +29,7 @@ function Vids() {
 					{youtube.map((vid, idx) => {
 						if (idx >= 4) return null;
 						return (
-							<div className='con'>
+							<div className='con' key={idx}>
 								<img
 									key={vid.id}
 									src={vid.snippet.thumbnails.standard.url}

@@ -13,15 +13,15 @@ function Pics({ Scrolled, Pos }) {
 				{Items.map((item, idx) => {
 					if (idx >= 4) return null;
 					return (
-						<figure>
+						<figure key={idx}>
 							<div className='circle'>
 								<img
 									src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
 									alt={item.title}
 								/>
 							</div>
-							<figcaption>{item.owner}</figcaption>
-							<p>{item.title === '' ? 'Have a good day!!' : item.title}</p>
+							<figcaption>{item.title === '' ? 'Have a good day!!' : item.title}</figcaption>
+							<p>{item.owner}</p>
 							<span className='line_deco bottom'></span>
 						</figure>
 					);

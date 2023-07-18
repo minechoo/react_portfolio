@@ -8,34 +8,26 @@ import { useDispatch } from 'react-redux';
 function Gallery() {
 	const dispatch = useDispatch();
 	const Items = useSelector((store) => store.galleryReducer.gallery);
+	console.log(Items);
 	const openModal = useRef(null);
-	const isUser = useRef(true);
-	//let searchInput = useRef(null);
-	const btnSet = useRef(null);
 	const frame = useRef(null);
 	const enableEvent = useRef(true);
 	const counter = useRef(null);
 	const firstLoaded = useRef(true);
-	// const [Items, setItems] = useState([]);
+
 	const [Loader, setLoader] = useState(true);
 	const [Index, setIndex] = useState(0);
-	const [Mounted, setMounted] = useState(true);
-	const [Opt, setOpt] = useState({ type: 'user', user: '194260994@N06' });
+	// const [Mounted, setMounted] = useState(true);
 
 	useEffect(() => {
 		counter.current = 0;
 		if (Items.length === 0 && !firstLoaded.current) {
 			setLoader(false);
 			frame.current.classList.add('on');
-			const btnMine = btnSet.current.children;
-			btnMine[1].classList.add('on');
-			setOpt({ type: 'user', user: '194260994@N06' });
 			enableEvent.current = true;
 			return alert('이미지 결과값이 없습니다');
 		}
 		firstLoaded.current = false;
-		console.log(Items);
-		// setItems(result.data.photos.photo);
 
 		const imgs = frame.current.querySelectorAll('img');
 		imgs.forEach((img) => {
@@ -51,63 +43,9 @@ function Gallery() {
 		});
 	}, [Items]);
 
-	const resetGallery = (e) => {
-		const btns = btnSet.current.querySelectorAll('button');
-		btns.forEach((el) => el.classList.remove('on'));
-		e.target.classList.add('on');
-		enableEvent.current = false;
-		setLoader(true);
-		frame.current.classList.remove('on');
-	};
-
-	const showInterest = (e) => {
-		//재이벤트, 모션중 재이벤트 방지
-		if (!enableEvent.current) return;
-		if (e.target.classList.contains('on')) return;
-
-		//기존 갤러리 초기화 함수 호출
-		resetGallery(e);
-
-		//새로운 데이터로 갤러리 생성 함수 호출
-		setOpt({ type: 'interest' });
-		isUser.current = false;
-	};
-
-	const showMine = (e) => {
-		//재이벤트, 모션중 재이벤트 방지
-		if (!enableEvent.current) return;
-		if (e.target.classList.contains('on')) return;
-
-		//기존 갤러리 초기화 함수 호출
-		resetGallery(e);
-
-		//새로운 데이터로 갤러리 생성 함수 호출
-		setOpt({ type: 'user', user: '194260994@N06' });
-	};
-
-	// const showSearch = (e) => {
-	// 	const tag = searchInput.current.value.trim();
-	// 	if (tag === '') return alert('검색어를 입력하세요');
-
-	// 	if (!enableEvent.current) return;
-	// 	resetGallery(e);
-	// 	setOpt({ type: 'search', tags: tag });
-	// 	searchInput.current.value = '';
-	// };
-
-	//setOpt({type: 'search', tags: 'landscape'})
-
 	useEffect(() => {
-		dispatch({ type: 'SET_GALLERY', payload: Opt });
-	}, [Opt, dispatch]);
-
-	useEffect(() => {
-		setOpt({ type: 'user', user: '194260994@N06' });
-		return () => {
-			setMounted(false);
-		};
-	}, [setOpt]);
-	// useEffect(() => getFlickr({ type: 'interest' }), []);
+		dispatch({ type: 'SET_GALLERY', payload: Items });
+	}, [Items, dispatch]);
 
 	return (
 		<>
@@ -118,23 +56,6 @@ function Gallery() {
 				}
 			>
 				<>
-					<div className='searchBox'>
-						{/* <div className='search'>
-							<label htmlFor='search'></label>
-							<input type='text' id='search' name='' placeholder='검색어입력' />
-							<button className='btn_search'>Search</button>
-						</div> */}
-
-						<div className='btnSet' ref={btnSet}>
-							<button className='btnInterest' onClick={showInterest}>
-								Interest Gallery
-							</button>
-							<button className='btnMine on' onClick={showMine}>
-								My Gallery
-							</button>
-						</div>
-					</div>
-
 					<ul className='wrap on' ref={frame}>
 						<Masonry elementType={'div'} options={{ transitionDuration: '0.5s' }}>
 							{Items.map((item, idx) => {
@@ -167,18 +88,7 @@ function Gallery() {
 														)
 													}
 												/>
-												<span
-													className='userid'
-													onClick={(e) => {
-														if (isUser.current) return;
-														isUser.current = true;
-														setLoader(true);
-														frame.current.classList.remove('on');
-														setOpt({ type: 'user', user: e.target.innerText });
-													}}
-												>
-													{item.owner}
-												</span>
+												<span className='userid'>{item.owner}</span>
 											</div>
 										</div>
 									</li>

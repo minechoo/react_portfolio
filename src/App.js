@@ -41,33 +41,21 @@ function App() {
 
 		const result = await axios.get(url);
 		dispatch(setYoutube(result.data.items));
-		console.log(result.data.items);
+		console.log(setYoutube(result.data.items));
 	}, [dispatch]);
 
-	const fetchGallery = useCallback(
-		async (opt) => {
-			const baseURL = 'https://www.flickr.com/services/rest/?format=json&nojsoncallback=1';
-			const key = '86fbba2c96b5252a51879bc23af1f41e';
-			const method_interest = 'flickr.interestingness.getList';
-			const method_user = 'flickr.people.getPhotos';
-			const method_search = 'flickr.photos.search';
-			const num = 50;
-			let url = '';
-			//const myId = '194260994@N06';
+	const fetchGallery = useCallback(async () => {
+		const baseURL = 'https://www.flickr.com/services/rest/?format=json&nojsoncallback=1';
+		const key = '86fbba2c96b5252a51879bc23af1f41e';
+		const method_user = 'flickr.people.getPhotos';
+		const num = 50;
+		const myId = '194260994@N06';
+		let url = ` ${baseURL}&api_key=${key}&method=${method_user}&per_page=${num}&user_id=${myId}`;
 
-			if (opt.type === 'interest')
-				url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
-			if (opt.type === 'search')
-				url = `${baseURL}&api_key=${key}&method=${method_search}&per_page=${num}&tags=${opt.tags}`;
-			if (opt.type === 'user')
-				url = `${baseURL}&api_key=${key}&method=${method_user}&per_page=${num}&user_id=${opt.user}`;
-
-			const resultG = await axios.get(url);
-			dispatch(setGallery(resultG.data.photos.photo));
-			console.log(setGallery(resultG.data.photos.photo));
-		},
-		[dispatch]
-	);
+		const resultG = await axios.get(url);
+		dispatch(setGallery(resultG.data.photos.photo));
+		console.log(setGallery(resultG.data.photos.photo));
+	}, [dispatch]);
 
 	useEffect(() => {
 		fetchMembers();
