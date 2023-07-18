@@ -559,9 +559,13 @@ body {
 	#gallery {
 		h1 {
 			margin-bottom: 73px;
+			transform: translateY(0px);
+			opacity: 1;
 		}
 		.img_box figure {
 			height: 500px;
+			transform: translateY(0);
+			opacity: 1;
 
 			&:last-child {
 				display: none;
@@ -740,7 +744,6 @@ body {
 		}
 	}
 	#things {
-		// height: 3150px;
 		#gallery {
 			.img_box {
 				figure {
