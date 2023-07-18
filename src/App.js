@@ -18,6 +18,8 @@ import Department from './components/sub/Department';
 import './scss/style.scss';
 import { useRef } from 'react';
 import { fetchYoutube } from './redux/youtubeSlice';
+import { fetchDepartment } from './redux/departmentSlice';
+import { fetchFlickr } from './redux/gallerySlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -26,6 +28,8 @@ function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchYoutube());
+		dispatch(fetchDepartment());
+		dispatch(fetchFlickr({ type: 'user', user: '194260994@N06' }));
 	}, [dispatch]);
 
 	return (
