@@ -21,6 +21,7 @@ function Pics({ Scrolled, Pos }) {
 							</div>
 							<figcaption>{pic.title}</figcaption>
 							<p>{pic.id}</p>
+							<span className='line_deco bottom'></span>
 						</figure>
 					);
 				})}
