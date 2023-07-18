@@ -3,10 +3,10 @@ import { useEffect, useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import Modal from '../common/Modal';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 function Gallery() {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	const Items = useSelector((store) => store.galleryReducer.gallery);
 	console.log(Items);
 	const openModal = useRef(null);
@@ -43,9 +43,9 @@ function Gallery() {
 		});
 	}, [Items]);
 
-	useEffect(() => {
-		dispatch({ type: 'SET_GALLERY', payload: Items });
-	}, [Items, dispatch]);
+	// useEffect(() => {
+	// 	dispatch({ type: 'SET_GALLERY', payload: Items });
+	// }, [Items, dispatch]);
 
 	return (
 		<>
