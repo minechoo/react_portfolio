@@ -10,7 +10,7 @@ function Pics({ Scrolled, Pos }) {
 				{Items.map((item, idx) => {
 					if (idx >= 4) return null;
 					return (
-						<figure>
+						<figure key={idx}>
 							<div className='circle' key={idx}>
 								<img
 									src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}

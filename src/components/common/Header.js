@@ -1,27 +1,12 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, NavLink } from 'react-router-dom';
+import { toggle } from '../../redux/menuSlice';
+import { useDispatch } from 'react-redux';
 
 function Header({ type, menu }) {
-	// const active = { color: 'aqua' };
 	const active = 'on';
-	// const menu = useRef(null);
-	// const gnb = useRef(null);
-	// const btnG = useRef(null);
-	//const toggleMenu = useRef(null);
-	//const body = document.querySelector('body');
-
-	// useEffect(() => {
-	// 	menu.current.addEventListener('click', () => {
-	// 		gnb.current.classList.add('on');
-	// 		body.style.overflowY = 'hidden';
-	// 	});
-
-	// 	btnG.current.addEventListener('click', () => {
-	// 		gnb.current.classList.remove('on');
-	// 		body.style.overflowY = 'auto';
-	// 	});
-	// }, []);
+	const dispatch = useDispatch();
 
 	return (
 		<>
@@ -73,7 +58,7 @@ function Header({ type, menu }) {
 					<FontAwesomeIcon
 						icon={faBars}
 						onClick={() => {
-							menu.current.toggle();
+							dispatch(toggle());
 						}}
 					/>
 				</div>

@@ -16,7 +16,6 @@ import Member from './components/sub/Member';
 import Department from './components/sub/Department';
 
 import './scss/style.scss';
-import { useRef } from 'react';
 import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchDepartment } from './redux/departmentSlice';
 import { fetchFlickr } from './redux/gallerySlice';
@@ -24,7 +23,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 function App() {
-	const menu = useRef(null);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchYoutube());
@@ -35,8 +33,8 @@ function App() {
 	return (
 		<>
 			<Switch>
-				<Route exact path='/' render={() => <Main menu={menu} />} />
-				<Route path='/' render={() => <Header type={'sub'} menu={menu} />} />
+				<Route exact path='/' render={() => <Main />} />
+				<Route path='/' render={() => <Header type={'sub'} />} />
 			</Switch>
 
 			<Route path='/department' component={Department} />
@@ -47,7 +45,7 @@ function App() {
 			<Route path='/member' component={Member} />
 			<Footer />
 
-			<Menu ref={menu} />
+			<Menu />
 		</>
 	);
 }

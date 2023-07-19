@@ -9,12 +9,12 @@ import Btns from './Btns';
 
 import { useState } from 'react';
 
-function Main({ menu }) {
+function Main() {
 	const [Scrolled, setScrolled] = useState(0);
 	const [Pos, setPos] = useState([]);
 	return (
 		<>
-			<Header type={'main'} menu={menu} />
+			<Header type={'main'} />
 			<main>
 				<Visual />
 				<Vids />

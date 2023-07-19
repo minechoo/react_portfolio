@@ -1,29 +1,29 @@
-import { forwardRef, useState, useImperativeHandle, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { close } from '../../redux/menuSlice';
 
-const Menu = forwardRef((props, ref) => {
+function Menu() {
 	const active = { color: '#cd5772' };
-	const [Open, setOpen] = useState(false);
+	const dispatch = useDispatch();
+	const menu = useSelector((store) => store.menu.open);
 
 	useEffect(() => {
 		window.addEventListener('resize', () => {
-			if (window.innerWidth >= 1200) setOpen(false);
+			if (window.innerWidth >= 1200) dispatch(close());
 		});
-	}, []);
+	}, [dispatch]);
 
-	useImperativeHandle(ref, () => {
-		return { toggle: () => setOpen(!Open) };
-	});
 	return (
 		<AnimatePresence>
-			{Open && (
+			{menu && (
 				<motion.nav
 					id='mobilePanel'
 					initial={{ opacity: 0, x: '-100%' }}
 					animate={{ opacity: 1, x: '0%', transition: { duration: 0.5 } }}
 					exit={{ opacity: 0, x: '-100%', transition: { duration: 0.5 } }}
-					onClick={() => setOpen(false)}
+					onClick={() => dispatch(close())}
 				>
 					<h1>
 						<Link to='/'>MOBILE</Link>
@@ -64,6 +64,6 @@ const Menu = forwardRef((props, ref) => {
 			)}
 		</AnimatePresence>
 	);
-});
+}
 
 export default Menu;
