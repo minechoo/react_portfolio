@@ -132,7 +132,8 @@
 
 @media screen and (max-width: $tablet) {
 	.Community {
-		> .inner {
+		.content_wrap {
+			width: 90%;
 			.inputBox {
 				input[type='text'],
 				textarea {
@@ -140,12 +141,14 @@
 				}
 				.btnSet {
 					display: flex;
-					flex-wrap: wrap;
 					justify-content: space-between;
+					gap: 10px;
 
 					button {
-						width: 47%;
+						width: calc(50% - 5px);
 						margin-right: 0;
+						margin-left: 0;
+						box-sizing: border-box;
 					}
 				}
 			}
@@ -158,6 +161,18 @@
 						margin-top: 20px;
 					}
 				}
+			}
+		}
+	}
+}
+@media screen and (max-width: $mobile) {
+	.Community {
+		.content_wrap {
+			.inputBox {
+				padding: 30px;
+			}
+			.showBox {
+				padding: 30px;
 			}
 		}
 	}
