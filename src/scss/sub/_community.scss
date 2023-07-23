@@ -32,14 +32,17 @@
 			}
 
 			.btnSet {
-				text-align: right;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: 10px;
+
 				button {
 					width: 22%;
 					height: 40px;
 					border: 1px solid transparent;
 					border-image: linear-gradient(to right, #cd5772 0%, #ce6a52 100%);
 					border-image-slice: 1;
-					margin-left: 10px;
 					font-family: 'Montserrat';
 					font-weight: 600;
 					font-size: 14px;
@@ -132,32 +135,58 @@
 
 @media screen and (max-width: $tablet) {
 	.Community {
-		> .inner {
-			.inputBox {
-				input[type='text'],
-				textarea {
-					width: 100%;
-				}
-				.btnSet {
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: space-between;
+		.content_wrap {
+			width: 100%;
+			padding: 0 5%;
+			margin-bottom: 70px;
+			box-sizing: border-box;
 
-					button {
-						width: 47%;
-						margin-right: 0;
+			> .inner {
+				.inputBox {
+					input[type='text'],
+					textarea {
+						width: 100%;
+					}
+					.btnSet {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-between;
+
+						button {
+							width: 47%;
+							margin-right: 0;
+						}
+					}
+				}
+
+				.showBox {
+					article {
+						.txt,
+						.btnSet {
+							width: 100%;
+							margin-top: 20px;
+						}
 					}
 				}
 			}
+		}
+	}
+}
 
-			.showBox {
-				article {
-					.txt,
-					.btnSet {
-						width: 100%;
-						margin-top: 20px;
+@media screen and (max-width: $mobile) {
+	.Community {
+		.content_wrap {
+			.inputBox {
+				padding: 7%;
+				.btnSet {
+					justify-content: space-between;
+					button {
+						width: calc(50% - 5px);
 					}
 				}
+			}
+			.showBox {
+				padding: 7%;
 			}
 		}
 	}
