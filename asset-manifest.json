@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react_portfolio/static/css/main.bf818b39.css",
-    "main.js": "/react_portfolio/static/js/main.1e987a4b.js",
+    "main.css": "/react_portfolio/static/css/main.879d527f.css",
+    "main.js": "/react_portfolio/static/js/main.a1b534ed.js",
     "static/media/Montserrat-Medium.woff2": "/react_portfolio/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
     "static/media/Montserrat-ExtraBold.woff2": "/react_portfolio/static/media/Montserrat-ExtraBold.e90b215d7f376e5fa8ae.woff2",
     "static/media/Montserrat-Regular.woff2": "/react_portfolio/static/media/Montserrat-Regular.58a8d7ebc386843b62c5.woff2",
@@ -12,17 +12,17 @@
     "static/media/Montserrat-ExtraLight.woff2": "/react_portfolio/static/media/Montserrat-ExtraLight.f8bced5ff3fb68517cbf.woff2",
     "static/media/Montserrat-Thin.woff2": "/react_portfolio/static/media/Montserrat-Thin.483aa3e18a5558acdee2.woff2",
     "static/media/bg_footer.png": "/react_portfolio/static/media/bg_footer.851bc9b1e46efba35569.png",
+    "index.html": "/react_portfolio/index.html",
     "static/media/ico_check_on.svg": "/react_portfolio/static/media/ico_check_on.44887f0355bef316a9e6.svg",
     "static/media/ico_radio_on.svg": "/react_portfolio/static/media/ico_radio_on.0cacf1ae696ea4d19d5a.svg",
     "static/media/ico_check_off.svg": "/react_portfolio/static/media/ico_check_off.ef7cd70fa339b4ad1126.svg",
     "static/media/ico_radio_off.svg": "/react_portfolio/static/media/ico_radio_off.e00da37109186ab4e852.svg",
-    "index.html": "/react_portfolio/index.html",
     "static/media/ico_arrow.svg": "/react_portfolio/static/media/ico_arrow.2f70354432be237436b1.svg",
-    "main.bf818b39.css.map": "/react_portfolio/static/css/main.bf818b39.css.map",
-    "main.1e987a4b.js.map": "/react_portfolio/static/js/main.1e987a4b.js.map"
+    "main.879d527f.css.map": "/react_portfolio/static/css/main.879d527f.css.map",
+    "main.a1b534ed.js.map": "/react_portfolio/static/js/main.a1b534ed.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf818b39.css",
-    "static/js/main.1e987a4b.js"
+    "static/css/main.879d527f.css",
+    "static/js/main.a1b534ed.js"
   ]
 }
