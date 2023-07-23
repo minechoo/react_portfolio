@@ -5,7 +5,7 @@ body {
 #wrap_first {
 	position: relative;
 	width: 100%;
-	height: 772px;
+	height: 100vh;
 	background: #1a1a1f;
 	display: flex;
 	justify-content: center;
@@ -35,7 +35,7 @@ body {
 		h2 {
 			color: #fff;
 			font-size: 3vw;
-			margin-bottom: 25px;
+			margin-bottom: 20px;
 		}
 		p {
 			color: #cd5772;
@@ -47,7 +47,7 @@ body {
 			align-items: center;
 			width: 320px;
 			height: 60px;
-			margin-top: 70px;
+			margin-top: 60px;
 			padding: 0 5px;
 			border-radius: 60px;
 			background-image: linear-gradient(to right, $red, $orange);
@@ -153,52 +153,52 @@ body {
 		transition: 1s;
 	}
 
-	#youtube {
-		position: relative;
-		width: 100%;
-		height: 300px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+	// #youtube {
+	// 	position: relative;
+	// 	width: 100%;
+	// 	height: 300px;
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// 	align-items: center;
 
-		.con {
-			flex: 1;
-			height: 100%;
-			background: #000;
-			border-right: 1px solid #787878;
-			opacity: 0.7;
+	// 	.con {
+	// 		flex: 1;
+	// 		height: 100%;
+	// 		// background: #000;
+	// 		// border-right: 1px solid #787878;
+	// 		// opacity: 0.7;
 
-			&.on {
-				img {
-					opacity: 1;
-				}
-			}
+	// 		&.on {
+	// 			img {
+	// 				opacity: 1;
+	// 			}
+	// 		}
 
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				opacity: 0.7;
-				transition: 0.5s;
+	// 		img {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			object-fit: cover;
+	// 			opacity: 0.7;
+	// 			transition: 0.5s;
 
-				&:hover {
-					transform: scale(0.9);
-				}
-			}
+	// 			&:hover {
+	// 				transform: scale(0.9);
+	// 			}
+	// 		}
 
-			.bg_b {
-				width: 100%;
-				height: 100%;
-				background: #787878;
-				opacity: 0.7;
-				transition: 0.7s;
+	// 		.bg_b {
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			background: #787878;
+	// 			opacity: 0.7;
+	// 			transition: 0.7s;
 
-				&:hover {
-					transform: scale(0.9);
-				}
-			}
-		}
-	}
+	// 			&:hover {
+	// 				transform: scale(0.9);
+	// 			}
+	// 		}
+	// 	}
+	// }
 }
 #things.on {
 	.big_txt {
@@ -486,6 +486,7 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	right: 50px;
+	z-index: 10;
 
 	li {
 		width: 10px;
@@ -552,15 +553,19 @@ body {
 	#things {
 		.content .content_txt {
 			width: 70%;
-			margin-top: 60px;
+			margin: 100px 0 0;
 		}
 	}
 	#gallery {
 		h1 {
 			margin-bottom: 73px;
+			transform: translateY(0px);
+			opacity: 1;
 		}
 		.img_box figure {
 			height: 500px;
+			transform: translateY(0px);
+			opacity: 1;
 
 			&:last-child {
 				display: none;
@@ -641,7 +646,7 @@ body {
 			}
 			.content {
 				.content_txt {
-					margin: 50px 0;
+					margin: 50px 0 0;
 					h1 {
 						font-size: 27px;
 					}
@@ -714,7 +719,6 @@ body {
 		}
 	}
 	#things {
-		// height: 3150px;
 		#gallery {
 			.img_box {
 				figure {
