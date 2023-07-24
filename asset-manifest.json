@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react_portfolio/static/css/main.879d527f.css",
+    "main.css": "/react_portfolio/static/css/main.29f37a5b.css",
     "main.js": "/react_portfolio/static/js/main.a1b534ed.js",
     "static/media/Montserrat-Medium.woff2": "/react_portfolio/static/media/Montserrat-Medium.e06c107cc50506570954.woff2",
     "static/media/Montserrat-ExtraBold.woff2": "/react_portfolio/static/media/Montserrat-ExtraBold.e90b215d7f376e5fa8ae.woff2",
@@ -18,11 +18,11 @@
     "static/media/ico_check_off.svg": "/react_portfolio/static/media/ico_check_off.ef7cd70fa339b4ad1126.svg",
     "static/media/ico_radio_off.svg": "/react_portfolio/static/media/ico_radio_off.e00da37109186ab4e852.svg",
     "static/media/ico_arrow.svg": "/react_portfolio/static/media/ico_arrow.2f70354432be237436b1.svg",
-    "main.879d527f.css.map": "/react_portfolio/static/css/main.879d527f.css.map",
+    "main.29f37a5b.css.map": "/react_portfolio/static/css/main.29f37a5b.css.map",
     "main.a1b534ed.js.map": "/react_portfolio/static/js/main.a1b534ed.js.map"
   },
   "entrypoints": [
-    "static/css/main.879d527f.css",
+    "static/css/main.29f37a5b.css",
     "static/js/main.a1b534ed.js"
   ]
 }
