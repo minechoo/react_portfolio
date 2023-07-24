@@ -625,6 +625,9 @@ body {
 			height: auto;
 		}
 	}
+	.indicate {
+		display: none;
+	}
 }
 @media screen and (max-width: 580px) {
 	#gallery {
