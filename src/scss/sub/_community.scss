@@ -141,31 +141,29 @@
 			margin-bottom: 70px;
 			box-sizing: border-box;
 
-			> .inner {
-				.inputBox {
-					input[type='text'],
-					textarea {
-						width: 100%;
-					}
-					.btnSet {
-						display: flex;
-						flex-wrap: wrap;
-						justify-content: space-between;
+			.inputBox {
+				input[type='text'],
+				textarea {
+					width: 100%;
+				}
+				.btnSet {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
 
-						button {
-							width: 47%;
-							margin-right: 0;
-						}
+					button {
+						width: 47%;
+						margin-right: 0;
 					}
 				}
+			}
 
-				.showBox {
-					article {
-						.txt,
-						.btnSet {
-							width: 100%;
-							margin-top: 20px;
-						}
+			.showBox {
+				article {
+					.txt,
+					.btnSet {
+						width: 100%;
+						margin-top: 20px;
 					}
 				}
 			}
