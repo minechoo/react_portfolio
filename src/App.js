@@ -16,22 +16,21 @@ import Member from './components/sub/Member';
 import Department from './components/sub/Department';
 
 import './scss/style.scss';
-import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchDepartment } from './redux/departmentSlice';
-import { fetchFlickr } from './redux/gallerySlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 function App() {
+	const queryClient = new QueryClient();
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchYoutube());
 		dispatch(fetchDepartment());
-		dispatch(fetchFlickr({ type: 'user', user: '194260994@N06' }));
 	}, [dispatch]);
 
 	return (
-		<>
+		<QueryClientProvider client={queryClient}>
 			<Switch>
 				<Route exact path='/' render={() => <Main />} />
 				<Route path='/' render={() => <Header type={'sub'} />} />
@@ -46,7 +45,8 @@ function App() {
 			<Footer />
 
 			<Menu />
-		</>
+			<ReactQueryDevtools />
+		</QueryClientProvider>
 	);
 }
 
