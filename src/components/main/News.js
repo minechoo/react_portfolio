@@ -51,14 +51,16 @@ function News() {
 							<FontAwesomeIcon icon={faTimeline} />
 							<h3>About this job</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in, fugit obcaecati.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in,
+								fugit obcaecati.
 							</p>
 						</div>
 						<div className='area_inner'>
 							<FontAwesomeIcon icon={faUsersRectangle} />
 							<h3>Tool we use</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in, fugit obcaecati.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in,
+								fugit obcaecati.
 							</p>
 							<ul>
 								<li>javascript</li>
@@ -70,7 +72,8 @@ function News() {
 							<FontAwesomeIcon icon={faRectangleList} />
 							<h3>Potential tasks</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in, fugit obcaecati.
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum saepe aliquam amet in,
+								fugit obcaecati.
 							</p>
 						</div>
 					</div>
