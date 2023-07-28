@@ -82,7 +82,7 @@ function Gallery() {
 				}
 			};
 		});
-	}, [Items.length, isSuccess]);
+	}, [Items, isSuccess]);
 
 	return (
 		<>
