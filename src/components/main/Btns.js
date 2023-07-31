@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import Anime from '../../asset/anime';
 import { memo } from 'react';
+import { useThrottle } from '../../hooks/useThrottle';
 
 function Btns({ setScrolled, setPos }) {
 	const btnRef = useRef(null);
@@ -16,11 +17,11 @@ function Btns({ setScrolled, setPos }) {
 	}, [setPos]);
 
 	const activation = useCallback(() => {
+		console.log('activation');
 		const base = -window.innerHeight / 3;
 		const scroll = window.scrollY;
 		const btns = btnRef.current.children;
 		const boxs = btnRef.current.parentElement.querySelectorAll('.myScroll');
-		setScrolled(scroll);
 
 		pos.current.forEach((pos, idx) => {
 			if (scroll > pos + base) {
@@ -30,18 +31,28 @@ function Btns({ setScrolled, setPos }) {
 				boxs[idx].classList.add('on');
 			}
 		});
+	}, []);
+
+	const changeScroll = useCallback(() => {
+		const scroll = window.scrollY;
+		setScrolled(scroll);
 	}, [setScrolled]);
+
+	const getPos2 = useThrottle(getPos);
+	const activation2 = useThrottle(activation);
 
 	useEffect(() => {
 		getPos();
-		window.addEventListener('resize', getPos);
-		window.addEventListener('scroll', activation);
+		window.addEventListener('resize', getPos2);
+		window.addEventListener('scroll', activation2);
+		window.addEventListener('scroll', changeScroll);
 		return () => {
-			window.removeEventListener('resize', getPos);
-			window.removeEventListener('scroll', activation);
+			window.removeEventListener('resize', getPos2);
+			window.removeEventListener('scroll', activation2);
+			window.addEventListener('scroll', changeScroll);
 			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 		};
-	}, [getPos, activation]);
+	}, [getPos2, activation2, getPos, changeScroll]);
 
 	return (
 		<ul className='indicate' ref={btnRef}>

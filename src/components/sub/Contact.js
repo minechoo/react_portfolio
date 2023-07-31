@@ -172,7 +172,7 @@ function Contact() {
 					</div>
 					<div className='us_contact'>
 						<h2>Live Chat</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aperiam ipsum laudantium.</p>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aperiam.</p>
 						<div className='icon_wrap'>
 							<div className='icon_box'>
 								<FontAwesomeIcon icon={faCommentSms} />
