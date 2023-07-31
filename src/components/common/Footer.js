@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDepartmentQuery } from '../../hooks/useDepartmentQuery';
 
 function Footer() {
-	const Department = useSelector((store) => store.department.data);
+	const { data: Members, isSuccess } = useDepartmentQuery();
 	return (
 		<footer>
 			<div className='content'>
@@ -11,11 +11,10 @@ function Footer() {
 						<Link to='/'>MOBILE</Link>
 					</h1>
 					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi
-						exercitationem quod aliquid
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus nisi exercitationem quod aliquid
 						<br />
 						<br />
-						{`This Company was founded by ${Department[0]?.name} in 2023`}
+						{`This Company was founded by ${isSuccess && Members[0].name} in 2023`}
 					</p>
 					<ul className='sns'>
 						<li>

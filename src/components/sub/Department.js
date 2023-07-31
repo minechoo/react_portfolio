@@ -1,9 +1,9 @@
 import Layout from '../common/Layout';
-import { useSelector } from 'react-redux';
+import { useDepartmentQuery } from '../../hooks/useDepartmentQuery';
 
 function Department() {
-	const Members = useSelector((store) => store.department.data);
-	console.log(Members);
+	const { data: Members, isSuccess } = useDepartmentQuery();
+	// console.log(Members);
 
 	return (
 		<Layout
@@ -13,23 +13,24 @@ function Department() {
 			}
 		>
 			<div className='wrap'>
-				{Members.map((member, idx) => {
-					return (
-						<article key={idx}>
-							<div className='pic'>
-								<img src={`${process.env.PUBLIC_URL}/img/${member.pic}`} alt={member.name} />
-								<div className='ex'>
-									<h2>{member.name}</h2>
-									<p>{member.position}</p>
-									<span className='sns'>
-										<i className='fa-brands fa-twitter'></i>
-										<i className='fa-brands fa-facebook-f'></i>
-									</span>
+				{isSuccess &&
+					Members.map((member, idx) => {
+						return (
+							<article key={idx}>
+								<div className='pic'>
+									<img src={`${process.env.PUBLIC_URL}/img/${member.pic}`} alt={member.name} />
+									<div className='ex'>
+										<h2>{member.name}</h2>
+										<p>{member.position}</p>
+										<span className='sns'>
+											<i className='fa-brands fa-twitter'></i>
+											<i className='fa-brands fa-facebook-f'></i>
+										</span>
+									</div>
 								</div>
-							</div>
-						</article>
-					);
-				})}
+							</article>
+						);
+					})}
 			</div>
 
 			<section id='things'>

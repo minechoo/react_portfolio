@@ -16,18 +16,11 @@ import Member from './components/sub/Member';
 import Department from './components/sub/Department';
 
 import './scss/style.scss';
-import { fetchDepartment } from './redux/departmentSlice';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 function App() {
 	const queryClient = new QueryClient();
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchDepartment());
-	}, [dispatch]);
 
 	return (
 		<QueryClientProvider client={queryClient}>
