@@ -124,28 +124,31 @@ function Contact() {
 			</div>
 
 			<article className='contact'>
-				<h2>Contact</h2>
-
-				<form ref={form} onSubmit={sendEmail}>
-					<div className='input_area'>
-						<div className='input_inner'>
-							<label>Name</label>
-							<input type='text' name='user_name' ref={inputName} />
+				<div className='us_contact'>
+					<h2>Call Us</h2>
+				</div>
+				<div className='form_box'>
+					<form ref={form} onSubmit={sendEmail}>
+						<div className='input_area'>
+							<div className='input_inner'>
+								<label>Name</label>
+								<input type='text' name='user_name' ref={inputName} />
+							</div>
+							<div className='input_inner'>
+								<label>Email</label>
+								<input type='email' name='user_email' ref={inputEmail} />
+							</div>
 						</div>
-						<div className='input_inner'>
-							<label>Email</label>
-							<input type='email' name='user_email' ref={inputEmail} />
+						<div className='text_area'>
+							<label>Message</label>
+							<textarea name='message' rows='10' ref={inputMessage} />
+							<div className='t_center'>
+								<input type='submit' className='btn_submit' value='Send' />
+							</div>
 						</div>
-					</div>
-					<div className='text_area'>
-						<label>Message</label>
-						<textarea name='message' rows='10' ref={inputMessage} />
-						<div className='t_center'>
-							<input type='submit' className='btn_submit' value='Send' />
-						</div>
-					</div>
-					{Success && <p className='red'>메일이 성공적으로 발송되었습니다</p>}
-				</form>
+						{Success && <p className='red'>메일이 성공적으로 발송되었습니다</p>}
+					</form>
+				</div>
 			</article>
 		</Layout>
 	);
