@@ -1,12 +1,11 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, NavLink } from 'react-router-dom';
-import { toggle } from '../../redux/menuSlice';
-import { useDispatch } from 'react-redux';
+import { useGlobalData } from '../../hooks/useGlobalContext';
 
 function Header({ type, menu }) {
+	const { MenuOpen, setMenuOpen } = useGlobalData();
 	const active = 'on';
-	const dispatch = useDispatch();
 
 	return (
 		<>
@@ -58,7 +57,7 @@ function Header({ type, menu }) {
 					<FontAwesomeIcon
 						icon={faBars}
 						onClick={() => {
-							dispatch(toggle());
+							setMenuOpen(!MenuOpen);
 						}}
 					/>
 				</div>
