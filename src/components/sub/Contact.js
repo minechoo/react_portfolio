@@ -1,6 +1,8 @@
 import Layout from '../common/Layout';
 import { useRef, useEffect, useState, useMemo } from 'react';
 import emailjs from '@emailjs/browser';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeadphones, faLocationDot, faCommentSms } from '@fortawesome/free-solid-svg-icons';
 
 function Contact() {
 	const [Traffic, setTraffic] = useState(false);
@@ -124,9 +126,6 @@ function Contact() {
 			</div>
 
 			<article className='contact'>
-				<div className='us_contact'>
-					<h2>Call Us</h2>
-				</div>
 				<div className='form_box'>
 					<form ref={form} onSubmit={sendEmail}>
 						<div className='input_area'>
@@ -148,6 +147,39 @@ function Contact() {
 						</div>
 						{Success && <p className='red'>메일이 성공적으로 발송되었습니다</p>}
 					</form>
+				</div>
+
+				<div className='us_wrap'>
+					<div className='us_contact'>
+						<h2>Call Us</h2>
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, magnam.</p>
+						<div className='icon_wrap'>
+							<div className='icon_box'>
+								<FontAwesomeIcon icon={faHeadphones} />
+							</div>
+							<span>031-000-0000</span>
+						</div>
+					</div>
+					<div className='us_contact'>
+						<h2>Visit Us</h2>
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, aliquid et!.</p>
+						<div className='icon_wrap'>
+							<div className='icon_box'>
+								<FontAwesomeIcon icon={faLocationDot} />
+							</div>
+							<span>exercitationem quod aliquid</span>
+						</div>
+					</div>
+					<div className='us_contact'>
+						<h2>Live Chat</h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aperiam ipsum laudantium.</p>
+						<div className='icon_wrap'>
+							<div className='icon_box'>
+								<FontAwesomeIcon icon={faCommentSms} />
+							</div>
+							<span>Live Chat</span>
+						</div>
+					</div>
 				</div>
 			</article>
 		</Layout>

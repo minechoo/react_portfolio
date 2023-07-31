@@ -81,15 +81,6 @@
 			padding-top: 100px;
 			gap: 30px;
 
-			.us_contact {
-				h2 {
-					margin-bottom: 17px;
-					color: #fff;
-					font-size: 30px;
-					line-height: 1;
-				}
-			}
-
 			.form_box {
 				width: 65%;
 
@@ -148,6 +139,53 @@
 
 						&:hover {
 							background-image: linear-gradient(to right, $red, $orange);
+						}
+					}
+				}
+			}
+
+			.us_wrap {
+				flex: 1;
+				.us_contact {
+					margin-bottom: 40px;
+					h2 {
+						margin-bottom: 5px;
+						color: #fff;
+						font-size: 23px;
+						line-height: 1;
+					}
+
+					p {
+						color: #77767c;
+						font-size: 16px;
+						line-height: 1.4;
+					}
+					.icon_wrap {
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
+						margin: 10px 0 0 0;
+
+						.icon_box {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 32px;
+							height: 32px;
+							border: 2px solid $red;
+							border-radius: 50%;
+							margin-right: 10px;
+
+							.fa-headphones,
+							.fa-location-dot,
+							.fa-comment-sms {
+								color: $red;
+								font-size: 20px;
+							}
+						}
+						span {
+							color: $orange;
+							font-size: 17px;
 						}
 					}
 				}

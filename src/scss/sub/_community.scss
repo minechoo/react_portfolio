@@ -13,7 +13,7 @@
 			margin-bottom: 100px;
 
 			.inputBox {
-				width: 75%;
+				width: calc(100% - 335px);
 				border: 1px solid #bbb;
 				padding: 50px;
 				margin-bottom: 50px;
@@ -67,7 +67,7 @@
 			}
 
 			.txt_right {
-				width: 25%;
+				width: 335px;
 
 				h2 {
 					margin-bottom: 17px;
@@ -89,6 +89,27 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
+			position: relative;
+
+			.fa-newspaper {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				font-size: 17vw;
+				color: #1a1a1f;
+				font-weight: 900;
+				line-height: 1;
+			}
+
+			.deco_txt {
+				position: absolute;
+				left: 170px;
+				bottom: 220px;
+				width: 335px;
+				color: #77767c;
+				font-size: 16px;
+				line-height: 1.7;
+			}
 
 			.txt_left {
 				h2 {
@@ -96,10 +117,6 @@
 					color: #fff;
 					font-size: 30px;
 					line-height: 1;
-
-					// span {
-					// 	font-size: 70px;
-					// }
 				}
 				p {
 					color: #77767c;
@@ -129,6 +146,19 @@
 					background: $deepblue;
 					box-sizing: border-box;
 
+					&:nth-of-type(2)::after {
+						content: '';
+						position: absolute;
+						right: -10px;
+						top: -10px;
+						width: 90px;
+						height: 112px;
+						border-top: 10px solid transparent;
+						border-right: 10px solid transparent;
+						border-image: linear-gradient(to right, #cd5772 0%, #ce6a52 100%);
+						border-image-slice: 1;
+					}
+
 					&:last-child {
 						margin-bottom: 0;
 					}
@@ -138,9 +168,10 @@
 						height: 200px;
 
 						.number {
-							color: #fff;
+							color: #aaa;
 							font-size: 32px;
 							line-height: 1.8;
+							font-weight: 400;
 						}
 
 						h2 {
