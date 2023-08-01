@@ -207,6 +207,18 @@
 		}
 	}
 }
+@media screen and (max-width: 1150px) {
+	.Contact {
+		.content_wrap {
+			.contact {
+				flex-wrap: wrap;
+				.form_box {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
 @media screen and (max-width: $tablet) {
 	.Contact {
 		.content_wrap {
@@ -224,7 +236,7 @@
 }
 @media screen and (max-width: $mobile) {
 	.Contact {
-		padding-bottom: 100px;
+		padding-bottom: 50px;
 
 		.content_wrap {
 			.btn_map_wrap {
@@ -242,23 +254,23 @@
 				}
 			}
 			.contact {
-				h2 {
-					margin: 50px 0 30px;
-				}
-				form {
-					padding: 30px;
+				padding-top: 50px;
+				.form_box {
+					form {
+						padding: 30px;
 
-					.input_area {
-						display: block;
-						.input_inner {
+						.input_area {
+							display: block;
+							.input_inner {
+								width: 100%;
+							}
+						}
+						input {
+							margin-bottom: 15px;
+						}
+						.btn_submit {
 							width: 100%;
 						}
-					}
-					input {
-						margin-bottom: 15px;
-					}
-					.btn_submit {
-						width: 100%;
 					}
 				}
 			}
