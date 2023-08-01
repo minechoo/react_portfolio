@@ -13,7 +13,7 @@
 			margin-bottom: 100px;
 
 			.inputBox {
-				width: calc(100% - 335px);
+				width: calc(100% - 24%);
 				border: 1px solid #bbb;
 				padding: 50px;
 				margin-bottom: 50px;
@@ -67,7 +67,7 @@
 			}
 
 			.txt_right {
-				width: 335px;
+				width: 24%;
 
 				h2 {
 					margin-bottom: 17px;
@@ -89,41 +89,58 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
+			gap: 30px;
 			position: relative;
 
-			.fa-newspaper {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				font-size: 17vw;
-				color: #1a1a1f;
-				font-weight: 900;
-				line-height: 1;
-			}
+			.txt_box {
+				flex: 1;
 
-			.deco_txt {
-				position: absolute;
-				left: 170px;
-				bottom: 220px;
-				width: 335px;
-				color: #77767c;
-				font-size: 16px;
-				line-height: 1.7;
-			}
+				.big_txt {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					.fa-newspaper {
+						font-size: 17vw;
+						color: #1a1a1f;
+						font-weight: 900;
+						line-height: 1;
+					}
 
-			.txt_left {
-				h2 {
-					margin: 0 0 17px 0;
-					color: #fff;
-					font-size: 30px;
-					line-height: 1;
+					&::after {
+						content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto necessitatibus provident omnis illo a eligendi cumque, corporis quaerat fugit animi modi eum non alias magni magnam labore sed similique maxime debitis ullam laboriosam aut, hic eos. Corrupti tempora culpa hic. Aperiam sed excepturi numquam reprehenderit veniam, accusamus modi repellendus alias!';
+						position: absolute;
+						left: 67%;
+						bottom: 67%;
+						width: 335px;
+						color: #77767c;
+						font-size: 16px;
+						line-height: 1.7;
+					}
 				}
-				p {
-					color: #77767c;
-					font-size: 16px;
-					line-height: 1.7;
-					margin-bottom: 150px;
-					word-break: break-all;
+				// .deco_txt {
+				// 	position: absolute;
+				// 	left: 170px;
+				// 	bottom: 220px;
+				// 	width: 335px;
+				// 	color: #77767c;
+				// 	font-size: 16px;
+				// 	line-height: 1.7;
+				// }
+
+				.txt_left {
+					h2 {
+						margin: 0 0 17px 0;
+						color: #fff;
+						font-size: 30px;
+						line-height: 1;
+					}
+					p {
+						color: #77767c;
+						font-size: 16px;
+						line-height: 1.7;
+						margin-bottom: 30px;
+						word-break: break-all;
+					}
 				}
 			}
 
@@ -137,6 +154,7 @@
 				box-sizing: border-box;
 
 				article {
+					position: relative;
 					width: calc(50% - 5px);
 					padding: 30px;
 					color: #fff;
@@ -219,37 +237,76 @@
 	}
 }
 
+@media screen and (max-width: 1530px) {
+	.Community {
+		.content_wrap {
+			width: 90%;
+
+			.show_wrap {
+				width: 100%;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1370px) {
+	.Community {
+		.content_wrap {
+			.input_wrap {
+				flex-wrap: wrap;
+				.inputBox {
+					width: 100%;
+				}
+				.txt_right {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
 @media screen and (max-width: $tablet) {
 	.Community {
 		.content_wrap {
-			width: 100%;
 			padding: 0 5%;
 			margin-bottom: 70px;
 			box-sizing: border-box;
 
-			.inputBox {
-				input[type='text'],
-				textarea {
-					width: 100%;
-				}
-				.btnSet {
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: space-between;
+			.input_wrap {
+				.inputBox {
+					input[type='text'],
+					textarea {
+						width: 100%;
+					}
+					.btnSet {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-between;
 
-					button {
-						width: 47%;
-						margin-right: 0;
+						button {
+							width: 47%;
+							margin-right: 0;
+						}
 					}
 				}
 			}
+			.show_wrap {
+				flex-wrap: wrap;
+				.txt_box {
+					width: 100%;
 
-			.showBox {
-				article {
-					.txt,
-					.btnSet {
-						width: 100%;
-						margin-top: 20px;
+					.big_txt,
+					.deco_txt {
+						display: none;
+					}
+				}
+				.showBox {
+					width: 100%;
+					article {
+						.txt,
+						.btnSet {
+							width: 100%;
+							margin-top: 20px;
+						}
 					}
 				}
 			}
@@ -260,17 +317,27 @@
 @media screen and (max-width: $mobile) {
 	.Community {
 		.content_wrap {
-			.inputBox {
-				padding: 7%;
-				.btnSet {
-					justify-content: space-between;
-					button {
-						width: calc(50% - 5px);
+			.input_wrap {
+				.inputBox {
+					padding: 7%;
+					.btnSet {
+						justify-content: space-between;
+						button {
+							width: calc(50% - 5px);
+						}
 					}
 				}
 			}
-			.showBox {
-				padding: 7%;
+			.show_wrap {
+				.showBox {
+					article {
+						width: 100%;
+
+						&:nth-of-type(2)::after {
+							display: none;
+						}
+					}
+				}
 			}
 		}
 	}

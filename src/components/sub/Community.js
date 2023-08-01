@@ -101,28 +101,23 @@ function Community() {
 				<div className='txt_right'>
 					<h2>dolor sit amet</h2>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi laboriosam repellendus iste sapiente fugiat
-						maxime natus sed velit architecto in porro harum expedita voluptas error impedit, provident accusantium
-						soluta cupiditate consequatur esse quos? Odio facere quibusdam sapiente, beatae iure nisi eligendi autem
-						voluptatem voluptatibus expedita molestias totam id nulla quisquam laborum impedit fugit corporis molestiae
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi laboriosam repellendus
+						iste sapiente fugiat maxime natus sed velit architecto in porro harum expedita voluptas
+						error impedit, provident accusantium soluta cupiditate consequatur esse quos? Odio
+						facere quibusdam sapiente, beatae iure nisi eligendi autem voluptatem voluptatibus
+						expedita molestias totam id nulla quisquam laborum impedit fugit corporis molestiae
 						laudantium itaque deserunt iusto libero animi!
 					</p>
 				</div>
 			</div>
 			<div className='show_wrap'>
-				<div>
-					<div className='big_txt'>
-						<FontAwesomeIcon icon={faNewspaper} />
-					</div>
-					<div className='deco_txt'>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto necessitatibus provident omnis illo a
-						eligendi cumque, corporis quaerat fugit animi modi eum non alias magni magnam labore sed similique maxime
-						debitis ullam laboriosam aut, hic eos. Corrupti tempora culpa hic. Aperiam sed excepturi numquam
-						reprehenderit veniam, accusamus modi repellendus alias!
-					</div>
+				<div className='txt_box'>
 					<div className='txt_left'>
 						<h2>consectetur elit dolor sit amet</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, quaerat.</p>
+					</div>
+					<div className='big_txt'>
+						<FontAwesomeIcon icon={faNewspaper} />
 					</div>
 				</div>
 				<div className='showBox'>
@@ -138,7 +133,12 @@ function Community() {
 											<div className='number'>0{num}</div>
 											<input type='text' defaultValue={post.title} ref={editInput} />
 											<br />
-											<textarea cols='30' rows='3' defaultValue={post.content} ref={editTextarea}></textarea>
+											<textarea
+												cols='30'
+												rows='3'
+												defaultValue={post.content}
+												ref={editTextarea}
+											></textarea>
 										</div>
 										<nav className='btnSet'>
 											<button onClick={() => disableUpdate(idx)}>CANCEL</button>
