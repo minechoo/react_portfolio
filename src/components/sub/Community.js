@@ -1,5 +1,7 @@
 import Layout from '../common/Layout';
 import { useRef, useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 function Community() {
 	const getLocalData = () => {
@@ -86,49 +88,78 @@ function Community() {
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
 			}
 		>
-			<div className='inputBox'>
-				<input type='text' placeholder='제목을 입력하세요' ref={input} />
-				<br />
-				<textarea cols='30' rows='3' placeholder='본문을 입력하세요' ref={textarea}></textarea>
-				<br />
-				<nav className='btnSet'>
-					<button onClick={resetForm}>cancel</button>
-					<button onClick={createPost}>write</button>
-				</nav>
+			<div className='input_wrap'>
+				<div className='inputBox'>
+					<input type='text' placeholder='제목을 입력하세요' ref={input} />
+					<br />
+					<textarea cols='30' rows='7' placeholder='본문을 입력하세요' ref={textarea}></textarea>
+					<br />
+					<nav className='btnSet'>
+						<button onClick={resetForm}>cancel</button>
+						<button onClick={createPost}>write</button>
+					</nav>
+				</div>
+				<div className='txt_right'>
+					<h2>dolor sit amet</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi laboriosam repellendus
+						iste sapiente fugiat maxime natus sed velit architecto in porro harum expedita voluptas
+						error impedit, provident accusantium soluta cupiditate consequatur esse quos? Odio
+						facere quibusdam sapiente, beatae iure nisi eligendi autem voluptatem voluptatibus
+						expedita molestias totam id nulla quisquam laborum impedit fugit corporis molestiae
+						laudantium itaque deserunt iusto libero animi!
+					</p>
+				</div>
 			</div>
-			<div className='showBox'>
-				{Posts.map((post, idx) => {
-					return (
-						<article key={idx}>
-							{post.enableUpdate ? (
-								//수정모드
-								<>
-									<div className='txt'>
-										<input type='text' defaultValue={post.title} ref={editInput} />
-										<br />
-										<textarea cols='30' rows='3' defaultValue={post.content} ref={editTextarea}></textarea>
-									</div>
-									<nav className='btnSet'>
-										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
-										<button onClick={() => updatePost(idx)}>UPDATE</button>
-									</nav>
-								</>
-							) : (
-								//출력모드
-								<>
-									<div className='txt'>
-										<h2>{post.title}</h2>
-										<p>{post.content}</p>
-									</div>
-									<nav className='btnSet'>
-										<button onClick={() => enableUpdate(idx)}>EDIT</button>
-										<button onClick={() => deletePost(idx)}>DELETE</button>
-									</nav>
-								</>
-							)}
-						</article>
-					);
-				})}
+			<div className='show_wrap'>
+				<div className='txt_box'>
+					<div className='txt_left'>
+						<h2>consectetur elit dolor sit amet</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, quaerat.</p>
+					</div>
+					<div className='big_txt'>
+						<FontAwesomeIcon icon={faNewspaper} />
+					</div>
+				</div>
+				<div className='showBox'>
+					{Posts.map((post, idx) => {
+						return (
+							<article key={idx}>
+								{post.enableUpdate ? (
+									//수정모드
+									<>
+										<div className='txt'>
+											<input type='text' defaultValue={post.title} ref={editInput} />
+											<br />
+											<textarea
+												cols='30'
+												rows='3'
+												defaultValue={post.content}
+												ref={editTextarea}
+											></textarea>
+										</div>
+										<nav className='btnSet'>
+											<button onClick={() => disableUpdate(idx)}>CANCEL</button>
+											<button onClick={() => updatePost(idx)}>UPDATE</button>
+										</nav>
+									</>
+								) : (
+									//출력모드
+									<>
+										<div className='txt'>
+											<h2>{post.title}</h2>
+											<p>{post.content}</p>
+										</div>
+										<nav className='btnSet'>
+											<button onClick={() => enableUpdate(idx)}>EDIT</button>
+											<button onClick={() => deletePost(idx)}>DELETE</button>
+										</nav>
+									</>
+								)}
+							</article>
+						);
+					})}
+				</div>
 			</div>
 		</Layout>
 	);
