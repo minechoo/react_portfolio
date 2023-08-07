@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Layout from '../common/Layout';
 import { useHistory } from 'react-router-dom';
 
@@ -78,7 +78,7 @@ function Member() {
 			errs.gender = '성별을 체크해주세요';
 		}
 		if (value.interests.length === 0) {
-			errs.interest = '취미를 고르세요';
+			errs.interests = '취미를 고르세요';
 		}
 		if (value.edu === '') {
 			errs.edu = '최종학력을 선택하세요.';
@@ -89,15 +89,15 @@ function Member() {
 		return errs;
 	};
 
-	const resetForm = useCallback(() => {
-		const select = selectEl.current.options[0];
-		const checks = checkGroup.current.querySelectorAll('input');
-		const radios = radioGroup.current.querySelectorAll('input');
-		select.selected = true;
-		checks.forEach((el) => (el.checked = false));
-		radios.forEach((el) => (el.checked = false));
-		setVal(initVal);
-	}, []);
+	// const resetForm = useCallback(() => {
+	// 	const select = selectEl.current.options[0];
+	// 	const checks = checkGroup.current.querySelectorAll('input');
+	// 	const radios = radioGroup.current.querySelectorAll('input');
+	// 	select.selected = true;
+	// 	checks.forEach((el) => (el.checked = false));
+	// 	radios.forEach((el) => (el.checked = false));
+	// 	setVal(initVal);
+	// }, []);
 
 	useEffect(() => {
 		console.log(Val);
@@ -107,10 +107,10 @@ function Member() {
 		const len = Object.keys(Err).length;
 		if (len === 0 && Submit) {
 			alert('모든 인증을 통과했습니다');
-			//history.push('/');
-			resetForm();
+			history.push('/');
+			// resetForm();
 		}
-	}, [Err, Submit, resetForm]);
+	}, [Err, Submit, history]);
 
 	return (
 		<Layout
@@ -206,16 +206,16 @@ function Member() {
 							<tr>
 								<th scope='row'>INTEREST</th>
 								<td ref={checkGroup}>
-									<input type='checkbox' name='interest' id='music' value='music' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='music' value='music' onChange={handleCheck} />
 									<label htmlFor='music'>music</label>
 
-									<input type='checkbox' name='interest' id='dance' value='dance' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='dance' value='dance' onChange={handleCheck} />
 									<label htmlFor='dance'>dance</label>
 
-									<input type='checkbox' name='interest' id='book' value='book' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='book' value='book' onChange={handleCheck} />
 									<label htmlFor='book'>book</label>
 									<br />
-									{Err.interest && <p>{Err.interest}</p>}
+									{Err.interests && <p>{Err.interests}</p>}
 								</td>
 							</tr>
 							<tr>
