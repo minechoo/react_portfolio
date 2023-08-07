@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Layout from '../common/Layout';
 import { useHistory } from 'react-router-dom';
+import { useDebounce } from '../../hooks/useBounce';
 
 function Member() {
 	const selectEl = useRef(null);
@@ -24,12 +25,9 @@ function Member() {
 	const [Err, setErr] = useState({});
 	const [Submit, setSubmit] = useState(false);
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setVal({ ...Val, [name]: value });
-	};
+	const DebouncedVal = useDebounce(Val);
 
-	const handleRadio = (e) => {
+	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setVal({ ...Val, [name]: value });
 	};
@@ -45,10 +43,10 @@ function Member() {
 		setVal({ ...Val, [name]: checkArr });
 	};
 
-	const handleSelect = (e) => {
-		const { name, value } = e.target;
-		setVal({ ...Val, [name]: value });
-	};
+	const showErr = useCallback(() => {
+		console.log('showErr');
+		setErr(check(DebouncedVal));
+	}, [DebouncedVal]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -100,10 +98,6 @@ function Member() {
 	// }, []);
 
 	useEffect(() => {
-		console.log(Val);
-	}, [Val]);
-
-	useEffect(() => {
 		const len = Object.keys(Err).length;
 		if (len === 0 && Submit) {
 			alert('모든 인증을 통과했습니다');
@@ -111,6 +105,10 @@ function Member() {
 			// resetForm();
 		}
 	}, [Err, Submit, history]);
+
+	useEffect(() => {
+		showErr();
+	}, [DebouncedVal, showErr]);
 
 	return (
 		<Layout
@@ -194,10 +192,10 @@ function Member() {
 							<tr>
 								<th scope='row'>GENDER</th>
 								<td ref={radioGroup}>
-									<input type='radio' name='gender' id='male' value='male' onChange={handleRadio} />
+									<input type='radio' name='gender' id='male' defaultValue='male' onChange={handleChange} />
 									<label htmlFor='male'>Male</label>
 
-									<input type='radio' name='gender' id='female' value='female' onChange={handleRadio} />
+									<input type='radio' name='gender' id='female' defaultValue='female' onChange={handleChange} />
 									<label htmlFor='female'>Female</label>
 									<br />
 									{Err.gender && <p>{Err.gender}</p>}
@@ -206,13 +204,13 @@ function Member() {
 							<tr>
 								<th scope='row'>INTEREST</th>
 								<td ref={checkGroup}>
-									<input type='checkbox' name='interests' id='music' value='music' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='music' defaultValue='music' onChange={handleCheck} />
 									<label htmlFor='music'>music</label>
 
-									<input type='checkbox' name='interests' id='dance' value='dance' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='dance' defaultValue='dance' onChange={handleCheck} />
 									<label htmlFor='dance'>dance</label>
 
-									<input type='checkbox' name='interests' id='book' value='book' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='book' defaultValue='book' onChange={handleCheck} />
 									<label htmlFor='book'>book</label>
 									<br />
 									{Err.interests && <p>{Err.interests}</p>}
@@ -223,12 +221,12 @@ function Member() {
 									<label htmlFor='edu'>EDUCATION</label>
 								</th>
 								<td>
-									<select name='edu' id='edu' onChange={handleSelect} ref={selectEl}>
-										<option value=''>최종학력을 선택하세요</option>
-										<option value='elementary-school'>초등학교 졸업</option>
-										<option value='middle-school'>중학교 졸업</option>
-										<option value='high-school'>고등학교 졸업</option>
-										<option value='college'>대학교 졸업</option>
+									<select name='edu' id='edu' onChange={handleChange} ref={selectEl}>
+										<option defaultValue=''>최종학력을 선택하세요</option>
+										<option defaultValue='elementary-school'>초등학교 졸업</option>
+										<option defaultValue='middle-school'>중학교 졸업</option>
+										<option defaultValue='high-school'>고등학교 졸업</option>
+										<option defaultValue='college'>대학교 졸업</option>
 									</select>
 									{Err.edu && <p>{Err.edu}</p>}
 								</td>
@@ -243,7 +241,7 @@ function Member() {
 										id='comments'
 										cols='30'
 										rows='3'
-										value={Val.comments}
+										defaultValue={Val.comments}
 										onChange={handleChange}
 										placeholder='남기는 말을 입력하세요.'
 									></textarea>
@@ -253,8 +251,8 @@ function Member() {
 							</tr>
 							<tr>
 								<th scope='row' colSpan={2} className='t_center'>
-									<input type='reset' value='CANCEL' onClick={() => setVal(initVal)} />
-									<input type='SUBMIT' value='SEND' />
+									<input type='reset' defaultValue='CANCEL' onClick={() => setVal(initVal)} />
+									<input type='SUBMIT' defaultValue='SEND' />
 								</th>
 							</tr>
 						</tbody>
