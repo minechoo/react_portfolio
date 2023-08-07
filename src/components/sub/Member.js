@@ -78,7 +78,7 @@ function Member() {
 			errs.gender = '성별을 체크해주세요';
 		}
 		if (value.interests.length === 0) {
-			errs.interest = '취미를 고르세요';
+			errs.interests = '취미를 고르세요';
 		}
 		if (value.edu === '') {
 			errs.edu = '최종학력을 선택하세요.';
@@ -206,16 +206,16 @@ function Member() {
 							<tr>
 								<th scope='row'>INTEREST</th>
 								<td ref={checkGroup}>
-									<input type='checkbox' name='interest' id='music' value='music' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='music' value='music' onChange={handleCheck} />
 									<label htmlFor='music'>music</label>
 
-									<input type='checkbox' name='interest' id='dance' value='dance' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='dance' value='dance' onChange={handleCheck} />
 									<label htmlFor='dance'>dance</label>
 
-									<input type='checkbox' name='interest' id='book' value='book' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='book' value='book' onChange={handleCheck} />
 									<label htmlFor='book'>book</label>
 									<br />
-									{Err.interest && <p>{Err.interest}</p>}
+									{Err.interests && <p>{Err.interests}</p>}
 								</td>
 							</tr>
 							<tr>
