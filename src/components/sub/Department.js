@@ -1,9 +1,15 @@
 import Layout from '../common/Layout';
+import { useEffect, useState } from 'react';
 import { useDepartmentQuery } from '../../hooks/useDepartmentQuery';
 
 function Department() {
+	const [Mounted, setMounted] = useState(true);
 	const { data: Members, isSuccess } = useDepartmentQuery();
 	// console.log(Members);
+
+	useEffect(() => {
+		return () => setMounted(false);
+	}, []);
 
 	return (
 		<Layout
@@ -14,6 +20,7 @@ function Department() {
 		>
 			<div className='wrap'>
 				{isSuccess &&
+					Mounted &&
 					Members.map((member, idx) => {
 						return (
 							<article key={idx}>

@@ -5,6 +5,7 @@ import Modal from '../common/Modal';
 import { useFlickrQuery } from '../../hooks/useFlickerQuery';
 
 function Gallery() {
+	const [Mounted, setMounted] = useState(true);
 	const [Opt, setOpt] = useState({ type: 'user', user: '194260994@N06' });
 	const { data: Items, isSuccess } = useFlickrQuery(Opt);
 	console.log(Items);
@@ -59,7 +60,7 @@ function Gallery() {
 
 	useEffect(() => {
 		counter.current = 0;
-		if (isSuccess && Items.length === 0 && !firstLoaded.current) {
+		if (Mounted && isSuccess && Items.length === 0 && !firstLoaded.current) {
 			setLoader(false);
 			frame.current.classList.add('on');
 			const btnMine = btnSet.current.children;
@@ -82,7 +83,8 @@ function Gallery() {
 				}
 			};
 		});
-	}, [Items, isSuccess]);
+		return () => setMounted(false);
+	}, [Items, isSuccess, Mounted]);
 
 	return (
 		<>
