@@ -255,7 +255,7 @@ function Member() {
 							</tr>
 							<tr>
 								<th scope='row' colSpan={2} className='t_center'>
-									<input type='reset' defaultValue='CANCEL' onClick={() => setVal(initVal)} />
+									<input type='reset' defaultValue='CANCEL' onClick={() => setVal(initVal.current)} />
 									<input type='SUBMIT' defaultValue='SEND' />
 								</th>
 							</tr>
