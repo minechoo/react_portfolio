@@ -8,18 +8,16 @@ function Member() {
 	const radioGroup = useRef(null);
 	const checkGroup = useRef(null);
 	const history = useHistory();
-	const initVal = useRef(() => {
-		return {
-			userid: '',
-			pwd1: '',
-			pwd2: '',
-			email: '',
-			gender: '',
-			interests: [],
-			edu: '',
-			comments: '',
-		};
-	}, []);
+	const initVal = useRef({
+		userid: '',
+		pwd1: '',
+		pwd2: '',
+		email: '',
+		gender: '',
+		interests: [],
+		edu: '',
+		comments: '',
+	});
 
 	const [Val, setVal] = useState(initVal.current);
 	const [Err, setErr] = useState({});
@@ -252,7 +250,7 @@ function Member() {
 							</tr>
 							<tr>
 								<th scope='row' colSpan={2} className='t_center'>
-									<input type='reset' defaultValue='CANCEL' onClick={() => setVal(initVal)} />
+									<input type='reset' defaultValue='CANCEL' onClick={() => setVal(initVal.current)} />
 									<input type='SUBMIT' defaultValue='SEND' />
 								</th>
 							</tr>
