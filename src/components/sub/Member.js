@@ -94,7 +94,7 @@ function Member() {
 		select.selected = true;
 		checks.forEach((el) => (el.checked = false));
 		radios.forEach((el) => (el.checked = false));
-		setVal(initVal);
+		setVal(initVal.current);
 	}, []);
 
 	useEffect(() => {
@@ -134,6 +134,7 @@ function Member() {
 										type='text'
 										name='userid'
 										id='userid'
+										value={Val.userid}
 										placeholder='아이디를 입력하세요'
 										onChange={handleChange}
 									/>
@@ -150,6 +151,7 @@ function Member() {
 										type='password'
 										name='pwd1'
 										id='pwd1'
+										value={Val.pwd1}
 										placeholder='비밀번호를 입력하세요'
 										onChange={handleChange}
 									/>
@@ -166,6 +168,7 @@ function Member() {
 										type='password'
 										name='pwd2'
 										id='pwd2'
+										value={Val.pwd2}
 										placeholder='비밀번호를 재입력하세요'
 										onChange={handleChange}
 									/>
@@ -182,6 +185,7 @@ function Member() {
 										type='text'
 										name='email'
 										id='email'
+										value={Val.email}
 										placeholder='이메일주소를 입력하세요'
 										onChange={handleChange}
 									/>
@@ -192,10 +196,10 @@ function Member() {
 							<tr>
 								<th scope='row'>GENDER</th>
 								<td ref={radioGroup}>
-									<input type='radio' name='gender' id='male' value='male' onChange={handleRadio} />
+									<input type='radio' name='gender' id='male' defaultValue='male' onChange={handleRadio} />
 									<label htmlFor='male'>Male</label>
 
-									<input type='radio' name='gender' id='female' value='female' onChange={handleRadio} />
+									<input type='radio' name='gender' id='female' defaultValue='female' onChange={handleRadio} />
 									<label htmlFor='female'>Female</label>
 									<br />
 									{Err.gender && <p>{Err.gender}</p>}
@@ -204,13 +208,13 @@ function Member() {
 							<tr>
 								<th scope='row'>INTEREST</th>
 								<td ref={checkGroup}>
-									<input type='checkbox' name='interests' id='music' value='music' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='music' defaultValue='music' onChange={handleCheck} />
 									<label htmlFor='music'>music</label>
 
-									<input type='checkbox' name='interests' id='dance' value='dance' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='dance' defaultValue='dance' onChange={handleCheck} />
 									<label htmlFor='dance'>dance</label>
 
-									<input type='checkbox' name='interests' id='book' value='book' onChange={handleCheck} />
+									<input type='checkbox' name='interests' id='book' defaultValue='book' onChange={handleCheck} />
 									<label htmlFor='book'>book</label>
 									<br />
 									{Err.interests && <p>{Err.interests}</p>}
@@ -251,8 +255,8 @@ function Member() {
 							</tr>
 							<tr>
 								<th scope='row' colSpan={2} className='t_center'>
-									<input type='reset' value='CANCEL' onClick={() => setVal(initVal)} />
-									<input type='SUBMIT' value='SEND' />
+									<input type='reset' defaultValue='CANCEL' onClick={() => setVal(initVal)} />
+									<input type='SUBMIT' defaultValue='SEND' />
 								</th>
 							</tr>
 						</tbody>
