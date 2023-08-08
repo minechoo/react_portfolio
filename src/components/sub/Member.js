@@ -94,7 +94,7 @@ function Member() {
 		select.selected = true;
 		checks.forEach((el) => (el.checked = false));
 		radios.forEach((el) => (el.checked = false));
-		setVal(initVal);
+		setVal(initVal.current);
 	}, []);
 
 	useEffect(() => {
@@ -134,6 +134,7 @@ function Member() {
 										type='text'
 										name='userid'
 										id='userid'
+										value={Val.userid}
 										placeholder='아이디를 입력하세요'
 										onChange={handleChange}
 									/>
@@ -150,6 +151,7 @@ function Member() {
 										type='password'
 										name='pwd1'
 										id='pwd1'
+										value={Val.pwd1}
 										placeholder='비밀번호를 입력하세요'
 										onChange={handleChange}
 									/>
@@ -166,6 +168,7 @@ function Member() {
 										type='password'
 										name='pwd2'
 										id='pwd2'
+										value={Val.pwd2}
 										placeholder='비밀번호를 재입력하세요'
 										onChange={handleChange}
 									/>
@@ -182,6 +185,7 @@ function Member() {
 										type='text'
 										name='email'
 										id='email'
+										value={Val.email}
 										placeholder='이메일주소를 입력하세요'
 										onChange={handleChange}
 									/>
@@ -241,7 +245,7 @@ function Member() {
 										id='comments'
 										cols='30'
 										rows='3'
-										defaultValue={Val.comments}
+										value={Val.comments}
 										onChange={handleChange}
 										placeholder='남기는 말을 입력하세요.'
 									></textarea>
